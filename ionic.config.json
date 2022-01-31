@@ -1,0 +1,7 @@
+{
+  "name": "F-EHealth",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
