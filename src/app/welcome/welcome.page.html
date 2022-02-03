@@ -1,39 +1,54 @@
+<form [formGroup] ="registerForm" (ngSubmit)= "registerUser()">
+  <div>
+    <span *ngIf="registerForm.get('firstname')?.errors?.required && registerForm.get('firstname')?.touched">firstname is required</span>
+    <ion-input placeholder="Firstname" type="text" formControlName="firstname">
+    <ion-icon slot="icon-only" name="person-outline"></ion-icon>
+  
+    </ion-input>
+    <!-- <ion-icon name="mail-outline"></ion-icon> -->
+  </div>
+  <div>
+    <span *ngIf="registerForm.get('lastname')?.errors?.required && registerForm.get('lastname')?.touched">lastname is required</span>
 
-<div>
-  <ion-input placeholder="Firstname">
-  <ion-icon slot="icon-only" name="person-outline"></ion-icon>
+    <ion-input placeholder="Lastname" formControlName="lastname">
+    <ion-icon slot="icon-only" name="person-outline"></ion-icon>
+  
+    </ion-input>
+  </div>
+  <div>
+    <span *ngIf="registerForm.get('email')?.errors?.required && registerForm.get('email')?.touched">email is required</span>
 
-  </ion-input>
-  <!-- <ion-icon name="mail-outline"></ion-icon> -->
-</div>
-<div>
-  <ion-input placeholder="Lastname">
-  <ion-icon slot="icon-only" name="person-outline"></ion-icon>
-
-  </ion-input>
-</div>
-<div>
-  <ion-input placeholder="Email">
-  <ion-icon slot="icon-only" name="mail-outline"></ion-icon>
-
-  </ion-input>
-</div>
-<div>
-  <ion-input placeholder="Password">
-  <ion-icon slot="icon-only"  name="eye-off-outline"></ion-icon>
-
-  </ion-input>
-</div>
-<div>
-  <ion-input placeholder="Confirm Password">
-  <ion-icon slot="icon-only"  name="eye-off-outline"></ion-icon>
-
-  </ion-input>
-</div>
-<div class="sub">
-  <ion-button>
-    submit
-  </ion-button>
-</div>
+    <ion-input placeholder="Email" type="email" formControlName="email">
+    <ion-icon slot="icon-only" name="mail-outline"></ion-icon>
+  
+    </ion-input>
+  </div>
+  <section formGroupName="passwordGroup">
+    <span *ngIf="registerForm.get('passwordGroup.password')?.errors?.required && registerForm.get('passwordGroup.password')?.touched">password is required</span>
+    <span *ngIf="registerForm.get('passwordGroup.password')?.errors?.minlength && registerForm.get('passwordGroup.password')?.touched">password must be six characters or more</span>
+    <div >
+      <ion-input placeholder="Password" formControlName="password" type="password">
+      <ion-icon slot="icon-only"  name="eye-off-outline"></ion-icon>
+    
+      </ion-input>
+    </div>
+    <div>
+      <span *ngIf="registerForm.get('passwordGroup.confirmPassword')?.errors?.required && registerForm.get('passwordGroup.confirmPassword')?.touched">Confirm password is required</span>
+      <span *ngIf="registerForm.get('passwordGroup.confirmPassword')?.errors?.minlength && registerForm.get('passwordGroup.confirmPassword')?.touched">password must be six characters or more</span>
+      <span *ngIf="registerForm.get('passwordGroup')?.errors?.match">Passwords do not match</span>
+      <ion-input placeholder="Confirm Password" type="password" formControlName="confirmPassword">
+      <ion-icon slot="icon-only"  name="eye-off-outline"></ion-icon>
+    
+      </ion-input>
+    </div>
+  </section>
+  
+  <div class="sub">
+    <ion-button type='submit'>
+      submit
+    </ion-button>
+  </div>
+  
+</form>
 
 

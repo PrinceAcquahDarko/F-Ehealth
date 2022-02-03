@@ -12,8 +12,11 @@
     <section class="top">
       <div class="btn-container">
         <ion-buttons  class="home">
-          <ion-button routerLink="/home" fill="outline">login</ion-button>
-          <ion-button routerLink="/home/register" fill="outline">Register</ion-button>
+          <ion-button routerLink="/home/login" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+            true}" fill="outline">login</ion-button>
+          <ion-button routerLink="/home/register" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:
+            true}"
+          fill="outline">Register</ion-button>
         </ion-buttons>
       </div>
       

@@ -4,25 +4,94 @@
   
 </div>
 
+<form action="" #form="ngForm" (ngSubmit)="loginUser()">
 
 
 <div>
-  <ion-input placeholder="Email">
+  <small [hidden] = "usernameField.valid || usernameField.untouched">email is required</small>
+  <ion-input placeholder="Email" #usernameField = 'ngModel'[(ngModel)]="userCredentials.email" required name="email">
   <ion-icon slot="icon-only" name="mail-outline"></ion-icon>
 
   </ion-input>
 </div>
 <div>
-  <ion-input placeholder="Password">
+  <small [hidden] = "password.valid || password.untouched">password is required</small>
+  <ion-input placeholder="Password" #password = 'ngModel' [(ngModel)]="userCredentials.password" required name="password">
   <ion-icon slot="icon-only"  name="eye-off-outline"></ion-icon>
 
   </ion-input>
 </div>
 
 <div class="sub">
-  <ion-button>
+  <ion-button type='submit'>
     submit
   </ion-button>
 </div>
+
+</form>
+
+
+<!-- <div class="form-group col-sm-2">
+  <label for="insertUser">Insert User:</label>
+  <input class="form-control" type="text" placeholder="Name" [(ngModel)]="this.newUser.name" [ngModelOptions]="{standalone: true}"/>
+  <input class="form-control" type="text" placeholder="Blog" [(ngModel)]="this.newUser.blog" [ngModelOptions]="{standalone: true}"/>
+  <input class="form-control" type="text" placeholder="Age" [(ngModel)]="this.newUser.age" [ngModelOptions]="{standalone: true}"/>
+  <input class="form-control" type="text" placeholder="Location" [(ngModel)]="this.newUser.location" [ngModelOptions]="{standalone: true}"/>
+  <button class="btn btn-default" (click)="insertUser()"> Insert User </button>
+</div> -->
+
+<!-- users: User[];
+newUser: User;
+editUser: User;
+searchCriteria: string;
+
+constructor(
+  private userService: UserService
+) { }
+
+ngOnInit() {
+  this.newUser = User.CreateDefault();
+  this.editUser = User.CreateDefault();
+  this.searchCriteria = '';
+  this.getUsers();
+}
+
+deleteUser(user:User)
+{
+  this.userService.deleteUser(user)
+  .subscribe(
+    data => {
+      this.users.splice(this.users.indexOf(user), 1);
+      console.log("User deleted!");
+    })
+}
+
+insertUser() {
+  this.userService
+  .insertNewUser(this.newUser)
+  .subscribe(
+    data => {
+       this.newUser._id = data.id;
+       this.users.push(this.newUser);
+       this.newUser = User.CreateDefault();
+  
+       console.log("Added user.");
+    }
+  ) -->
+
+  <!-- export class User {
+    
+    constructor(
+        public _id: string,
+        public name : String,
+        public age: Number,
+        public location : string,
+        public blog: string
+    ){} 
+
+    static CreateDefault(): User {
+        return new User('', '', 0, '', '');
+    }
+} -->
 
 
