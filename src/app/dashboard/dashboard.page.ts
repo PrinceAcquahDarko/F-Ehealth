@@ -12,12 +12,14 @@ export class DashboardPage implements OnInit {
   constructor(private menu: MenuController) { }
 
   ngOnInit() {
+    console.log('yes')
     this.menu.enable(true, 'custom');
     this.menu.open('custom');
   }
 
   
   openFirst() {
+    console.log('yest')
     this.menu.enable(true, 'custom');
     this.menu.open('custom');
   }

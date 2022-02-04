@@ -41,6 +41,10 @@ ion-card-content > div{
   
 }
 
+ion-header{
+    display: none;
+}
+
 ::-webkit-scrollbar {
     width: 20px;
     }
@@ -54,7 +58,14 @@ ion-card-content > div{
     background:#dbdae0; 
     border-radius: 10px;
     }
-    
+
+   
+    ion-content{
+        display: none;
+    }
+    .shownot{
+        display: block;
+    }
 
 
 
@@ -72,4 +83,54 @@ ion-card{
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     width: 200px;
     height: 270px;
+}
+
+ion-button{
+    margin-top: 1em;
+}
+
+@media only screen and (max-width: 915px) {
+    .main{
+        width: 90%;
+        margin:auto;
+        min-height: 750px;
+        background: #ffffff;
+    }
+
+    .top{
+        background: #ffffff;
+        
+
+    }
+
+    ion-content{
+        --background: #ffffff;
+        display: block;
+    }
+
+    .shownot{
+        display: none;
+    }
+
+    ion-header{
+        display: block;
+    }
+
+    .top > div > ul {
+        margin-left: -15px;
+        width: 100%;
+     
+    }
+
+    ion-card{
+        width: 300px;
+    }
+
+    ion-button{
+        margin-top: 2em
+    }
+
+  
+
+    
 }
