@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { GeneralService } from '../home/general.service';
 
 
 function passwordMatcher(c: AbstractControl): { [key:string]: boolean } | null {
@@ -22,6 +24,7 @@ function passwordMatcher(c: AbstractControl): { [key:string]: boolean } | null {
   styleUrls: ['./welcome.page.scss'],
 })
 export class WelcomePage implements OnInit {
+  errormsg!:string
   registerForm: FormGroup = this.fb.group({
 
     firstname: ['', [Validators.required]],
@@ -37,13 +40,41 @@ export class WelcomePage implements OnInit {
 
   })
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private genService: GeneralService, private router:Router) { }
 
   ngOnInit() {
   }
 
-  registerUser(){
-    alert('we doing ionic')
+  registerUser(): void{
+    if(this.registerForm?.valid){
+      // this.show = true;
+      let data = this.formatValue()
+      this.genService.registerUser(data).subscribe(
+        res => {
+          localStorage.setItem('token', JSON.stringify(res.token));
+          localStorage.setItem('firstname', JSON.stringify(data.firstname));
+          this.router.navigate(['dashboard'])
+        },
+        err => {
+          console.log(err)
+          this.errormsg = err;
+          // this.show = false
+
+        },
+        // () => this.show = false
+      )
+    }
+    // alert(this.registerForm.value)
+  }
+
+  formatValue(){
+    return {
+      firstname : this.registerForm.value.firstname,
+      lastname : this.registerForm.value.lastname,
+      email : this.registerForm.value.email,
+      password : this.registerForm.value.passwordGroup.password
+    }
+
   }
 
 }

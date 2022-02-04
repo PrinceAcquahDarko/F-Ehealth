@@ -1,6 +1,6 @@
 <div class="welcome">
-  <h4>WELCOME</h4>
-  <p>Please sign in below with the credentials used in signing up </p>
+  <h2>WELCOME</h2>
+  <h3>{{errormsg}} </h3>
   
 </div>
 
@@ -8,14 +8,12 @@
 
 
 <div>
-  <small [hidden] = "usernameField.valid || usernameField.untouched">email is required</small>
   <ion-input placeholder="Email" #usernameField = 'ngModel'[(ngModel)]="userCredentials.email" required name="email">
   <ion-icon slot="icon-only" name="mail-outline"></ion-icon>
 
   </ion-input>
 </div>
 <div>
-  <small [hidden] = "password.valid || password.untouched">password is required</small>
   <ion-input placeholder="Password" #password = 'ngModel' [(ngModel)]="userCredentials.password" required name="password">
   <ion-icon slot="icon-only"  name="eye-off-outline"></ion-icon>
 
@@ -23,7 +21,7 @@
 </div>
 
 <div class="sub">
-  <ion-button type='submit'>
+  <ion-button type='submit' [disabled] = "form.invalid">
     submit
   </ion-button>
 </div>

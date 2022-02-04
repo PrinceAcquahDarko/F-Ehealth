@@ -10,6 +10,30 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule)
+  },
+  // {
+  //   path: 'profiles',
+  //   loadChildren: () => import('./profiles/profiles.module').then( m => m.ProfilesPageModule)
+  // },
+  // {
+  //   path: 'profile',
+  //   loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+  // },
+  {
+    path: 'chat',
+    loadChildren: () => import('./chat/chat.module').then( m => m.ChatPageModule)
+  },
+  {
+    path: 'notifications',
+    loadChildren: () => import('./notifications/notifications.module').then( m => m.NotificationsPageModule)
+  },
+  {
+    path: 'settings',
+    loadChildren: () => import('./settings/settings.module').then( m => m.SettingsPageModule)
   }
 ];
 
