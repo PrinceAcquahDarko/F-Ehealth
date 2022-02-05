@@ -33,6 +33,7 @@
       height:100vh;
   }
 
+
   .mainContainer{
     background: #f2f7fd;
     width: 80%;
@@ -42,6 +43,8 @@
   .mobRoutes{
     display: none;
   }
+
+  
 
   @media only screen and (max-width: 915px) {
       .routes{

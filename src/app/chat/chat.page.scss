@@ -1,0 +1,147 @@
+ion-content{
+    --background: #f2f7fd;
+    --color: #7a797d
+}
+
+ion-content > div{
+    width: 80%;
+    margin: 3em auto auto auto;
+}
+ion-col > div{
+    width: 80%;
+}
+
+ion-col > div > section{
+    margin-top: 2em;
+}
+
+ion-card{
+    margin-left:0;
+    width: 340px;
+    height: 60px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+}
+
+ion-card > div > img{
+    width: 70px;
+    height: 50px;
+    border-radius: 50%;
+    margin-top: 4px;
+
+}
+
+ion-card > div{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+h6{
+    margin-bottom: 0;
+    font-weight: 600;
+}
+
+.second{
+    margin-top: -7px;
+}
+
+.mainMsg{
+    margin-top: 2em;
+}
+
+.mainMsg > ion-card{
+    width: 420px;
+    height: 375px;
+}
+.second > ion-card{
+    margin-left:0;
+    width: 420px;
+    height: 70px;
+}
+
+.second > ion-card > div{
+    margin-left: 25px;
+    display: flex;
+    justify-content: flex-start;
+}
+.second > ion-card > div > div{
+    margin-left: 25px;
+ 
+}
+
+.msgContainer{
+    width: 70%;
+    padding:10px;
+}
+.fromHim{
+    width: 100%;
+    padding:10px;
+    // text-align: right;
+}
+
+.fromHim > div{
+    width: 300px;
+    background-color: #7080d5;
+    border-radius: 16px;
+    padding:10px;
+    margin-left: 5em;
+   
+}
+
+.small{
+    width: 100%;
+    display: block;
+}
+
+.fromHim > div > span{
+    color: #fff
+}
+
+.mainMsg > ion-card > ion-input{
+    width: 80%;
+    margin:auto;
+    box-shadow: none;
+    background: #eef2fd;
+    margin-top:20px
+
+  }
+.msgContainer > div{
+    width: 300px;
+    background-color: #eef2fd;
+    border-radius: 16px;
+    padding:10px;
+
+
+}
+
+ion-badge{
+    margin-top: 8px;
+    border-radius: 50%;
+    width: 20px;
+}
+
+.smallmargin{
+    margin-top: 10px;
+}
+
+
+.second > ion-card > div > img{
+    margin-top:10px
+ 
+}
+
+span{
+    color:#babcca
+}
+
+ion-icon{
+    padding-left: 20px;
+}
+
+ion-input{
+    background: #fff;
+    border-radius: 15px;
+    padding-left: 20px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
