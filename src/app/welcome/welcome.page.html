@@ -1,4 +1,4 @@
-<form [formGroup] ="registerForm" (ngSubmit)= "registerUser()">
+<form [formGroup] ="registerForm" class="mobile" (ngSubmit)= "registerUser()">
   <p>{{errormsg}}</p>
   <div>
     <p *ngIf="registerForm.get('firstname')?.errors?.required && registerForm.get('firstname')?.touched">firstname is required</p>
@@ -51,5 +51,71 @@
   </div>
   
 </form>
+
+
+
+<!-- for large screen -->
+
+<section class="desktop">
+  <section class="upper">
+    <h3>Register</h3>
+    <span>Life is when you've got good Health. Lets introduce you to better health care 3xperience</span>
+  </section>
+
+  <section class="lower">
+    <form [formGroup] ="registerForm" (ngSubmit)= "registerUser()">
+      <ion-grid >
+        <ion-row>
+          <ion-col size="6">
+              <ion-label>First Name</ion-label><br>
+             <ion-input formControlName="firstname"></ion-input>
+             <small *ngIf="registerForm.get('firstname')?.errors?.required && registerForm.get('firstname')?.touched">firstname is required</small>
+
+          </ion-col>
+          <ion-col size="6">
+            <ion-label>Last Name</ion-label><br>
+            <ion-input formControlName="lastname"></ion-input>
+            <small *ngIf="registerForm.get('lastname')?.errors?.required && registerForm.get('lastname')?.touched">lastname is required</small>
+
+          </ion-col>
+        </ion-row>
+        <ion-row formGroupName="passwordGroup">
+        
+          <ion-col size="6">
+            <ion-label>Password</ion-label><br>
+            <ion-input formControlName="password" type="password"></ion-input>
+            <small *ngIf="registerForm.get('passwordGroup.password')?.errors?.required && registerForm.get('passwordGroup.password')?.touched">password is required</small>
+        <small *ngIf="registerForm.get('passwordGroup.password')?.errors?.minlength && registerForm.get('passwordGroup.password')?.touched">password must be six characters or more</small>
+          </ion-col>
+          <ion-col size="6">
+            <ion-label>Confirm Password</ion-label><br>
+           <ion-input formControlName="confirmPassword" type="password"></ion-input>
+           <small *ngIf="registerForm.get('passwordGroup.confirmPassword')?.errors?.required && registerForm.get('passwordGroup.confirmPassword')?.touched">Confirm password is required</small>
+      <small *ngIf="registerForm.get('passwordGroup.confirmPassword')?.errors?.minlength && registerForm.get('passwordGroup.confirmPassword')?.touched">password must be six characters or more</small>
+      <small *ngIf="registerForm.get('passwordGroup')?.errors?.match">Passwords do not match</small>
+        </ion-col>
+        </ion-row>
+        <ion-row>
+      
+
+          <ion-col size="6">
+            <ion-label>Email</ion-label><br>
+           <ion-input formControlName="email"></ion-input>
+          <small *ngIf="registerForm.get('email')?.errors?.required && registerForm.get('email')?.touched">email is required</small>
+
+        </ion-col>
+         
+        </ion-row>
+  
+      </ion-grid>
+      <div class="bttn">
+          <ion-button type='submit'  [disabled] ="registerForm.invalid">Submit</ion-button>
+      </div>
+    </form>
+    
+
+    
+  </section>
+</section>
 
 

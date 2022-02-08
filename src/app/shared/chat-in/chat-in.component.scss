@@ -1,0 +1,113 @@
+.second{
+    margin-top: -7px;
+}
+
+h6{
+    margin-bottom: 0;
+    font-weight: 600;
+}
+
+
+.second > ion-card{
+    margin-left: 10px;
+    width: 400px;
+    height: 70px;
+}
+
+.second > ion-card > div{
+    margin-left: 25px;
+    display: flex;
+    justify-content: flex-start;
+}
+.second > ion-card > div > div{
+    margin-left: 25px;
+ 
+}
+
+
+ion-icon{
+    padding-left: 20px;
+}
+.mainMsg{
+    margin-top: 2em;
+}
+
+.mainMsg > ion-card > ion-card-content{
+    width: 420px;
+    height: 340px;
+    overscroll-behavior-y: auto;
+    overflow-y: auto;
+} 
+
+.msgContainer{
+    width: 70%;
+    padding:10px;
+}
+.fromHim{
+    width: 100%;
+    padding:10px;
+    // text-align: right;
+    
+}
+
+.fromHim > div{
+    min-width: 200px;
+    background-color: #7080d5;
+    border-radius: 16px;
+    padding:6px;
+    float: right;
+    margin-top:20px;
+    margin-bottom:20px;
+   
+}
+
+
+
+.fromHim > div > div > small{
+    color: #fff
+}
+.fromHim > div > span{
+    color: #fff
+        
+}
+.smallmargin{
+    margin-top: 10px;
+}
+
+.msgContainer > div{
+    min-width: 200px;
+
+    background-color: #eef2fd;
+    border-radius: 16px;
+    padding:6px;
+    float: left;
+
+
+
+}
+
+ion-card > div > img{
+    width: 70px;
+    height: 50px;
+    border-radius: 50%;
+    margin-top: 4px;
+
+}
+
+.inputContainer > ion-input{
+    width: 80%;
+    margin:auto;
+    box-shadow: none;
+    background: #eef2fd;
+    margin-top:20px;
+    border-radius: 16px;
+    margin-bottom: 10px;
+
+}
+
+
+.second > ion-card > div > img{
+    margin-top:10px
+ 
+}
+

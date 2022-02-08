@@ -1,11 +1,9 @@
 <div class="welcome">
   <h2>WELCOME</h2>
   <h3>{{errormsg}} </h3>
-  
 </div>
 
-<form action="" #form="ngForm" (ngSubmit)="loginUser()">
-
+<form class="mobile" action="" #form="ngForm" (ngSubmit)="loginUser()">
 
 <div>
   <ion-input placeholder="Email" #usernameField = 'ngModel'[(ngModel)]="userCredentials.email" required name="email">
@@ -28,68 +26,33 @@
 
 </form>
 
+<form class="desktop" #form="ngForm" (ngSubmit)="loginUser()">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+          <ion-label>Email</ion-label><br>
+         <ion-input  #usernameField = 'ngModel'[(ngModel)]="userCredentials.email" name="emailField" required type="email"></ion-input>
 
-<!-- <div class="form-group col-sm-2">
-  <label for="insertUser">Insert User:</label>
-  <input class="form-control" type="text" placeholder="Name" [(ngModel)]="this.newUser.name" [ngModelOptions]="{standalone: true}"/>
-  <input class="form-control" type="text" placeholder="Blog" [(ngModel)]="this.newUser.blog" [ngModelOptions]="{standalone: true}"/>
-  <input class="form-control" type="text" placeholder="Age" [(ngModel)]="this.newUser.age" [ngModelOptions]="{standalone: true}"/>
-  <input class="form-control" type="text" placeholder="Location" [(ngModel)]="this.newUser.location" [ngModelOptions]="{standalone: true}"/>
-  <button class="btn btn-default" (click)="insertUser()"> Insert User </button>
-</div> -->
+      </ion-col>
+      </ion-row>
 
-<!-- users: User[];
-newUser: User;
-editUser: User;
-searchCriteria: string;
-
-constructor(
-  private userService: UserService
-) { }
-
-ngOnInit() {
-  this.newUser = User.CreateDefault();
-  this.editUser = User.CreateDefault();
-  this.searchCriteria = '';
-  this.getUsers();
-}
-
-deleteUser(user:User)
-{
-  this.userService.deleteUser(user)
-  .subscribe(
-    data => {
-      this.users.splice(this.users.indexOf(user), 1);
-      console.log("User deleted!");
-    })
-}
-
-insertUser() {
-  this.userService
-  .insertNewUser(this.newUser)
-  .subscribe(
-    data => {
-       this.newUser._id = data.id;
-       this.users.push(this.newUser);
-       this.newUser = User.CreateDefault();
+      <ion-row>
+        <ion-col>
+            <ion-label>Password</ion-label><br>
+           <ion-input  #password = 'ngModel' [(ngModel)]="userCredentials.password" required name="password" type="password"></ion-input>
   
-       console.log("Added user.");
-    }
-  ) -->
+        </ion-col>
+        </ion-row>
+      
+      </ion-grid>
 
-  <!-- export class User {
-    
-    constructor(
-        public _id: string,
-        public name : String,
-        public age: Number,
-        public location : string,
-        public blog: string
-    ){} 
+      <div class="bttn">
+        <ion-button type='submit'  [disabled] ="form.invalid">Log In</ion-button>
+    </div>
+</form>
 
-    static CreateDefault(): User {
-        return new User('', '', 0, '', '');
-    }
-} -->
+
+
+
 
 

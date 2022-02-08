@@ -1,0 +1,44 @@
+ion-content{
+    --background: #fff;
+}
+
+ion-item{
+    --background:#fff
+}
+
+ion-list{
+    margin-top:1em;
+
+
+}
+ion-card{
+    height: 750px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    overscroll-behavior-y: auto;
+    overflow-y: auto;
+
+}
+.list-md{
+     padding-top: 0; 
+    padding-bottom: 0; 
+  background: #fff;
+}
+
+h2,p, ion-icon{
+    color: var(--ion-color-step-600, #666666);
+}
+
+
+@media only screen and (min-width: 915px) { 
+    app-header{
+        display: none;
+    }
+
+    ion-card{
+        width: 40%;
+        height: 500px;
+        margin:6em auto auto auto
+    }
+
+  
+}

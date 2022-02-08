@@ -41,7 +41,7 @@ ion-card-content > div{
   
 }
 
-ion-header{
+app-header{
     display: none;
 }
 
@@ -112,7 +112,7 @@ ion-button{
         display: none;
     }
 
-    ion-header{
+    app-header{
         display: block;
     }
 

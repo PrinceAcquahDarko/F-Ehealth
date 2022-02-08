@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { WelcomePageRoutingModule } from './welcome-routing.module';
+import { ChatInterfacePageRoutingModule } from './chat-interface-routing.module';
 
-import { WelcomePage } from './welcome.page';
+import { ChatInterfacePage } from './chat-interface.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    WelcomePageRoutingModule
+    ChatInterfacePageRoutingModule
   ],
-  declarations: [WelcomePage]
+  declarations: [ChatInterfacePage]
 })
-export class WelcomePageModule {}
+export class ChatInterfacePageModule {}

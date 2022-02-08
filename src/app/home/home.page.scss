@@ -9,6 +9,8 @@ ion-card{
   top: -150px;
   left: 35px;
   border-radius: 20px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
   
 
 }
@@ -52,7 +54,9 @@ ion-content{
   justify-content: center;
 }
 
-
+.topmostMob{
+  display: none;
+}
 
 .top{
   width: 100%;
@@ -64,17 +68,6 @@ ion-content{
   
 }
 
-// .top:before{
-//   content: '';
-//   position:absolute;
-//   top: 0;
-//   left:0;
-//   width: 100%;
-//   height: 100%;
-//   background: linear-gradient(45deg, #ff0081, #6827b0);
-//   border-radius: 0 0 50% 50% / 0 0 100% 100%;
-//   transform: scaleX(1);
-// }
 
 .bottom{
   width: 100%;
@@ -84,23 +77,100 @@ ion-content{
 
 }
 
+.btn-Contdesd{
+  display: none;
+}
+
 @media only screen and (min-width: 915px) {
 
-  ion-card{
-    width: 50%;
-    min-height: 450px;
-    --background: #ffffff;
-    position: absolute;
-    top: -189px;
-    left: 300px;
-    border-radius: 20px;
-  
-  }
+    .container{
+      width: 100%;
+      height:100%;
+      display: flex;
+    }
 
-  .btn-container{
-    height: 100px;
+    .topmostMob{
+      display: block;
+      width: 70%;
+      margin: 1em auto auto auto;
+    }
+
+    .topmostMob > div{
+      margin-top: 5.2em;
+    }
+
+    .top{
+      width: 25%;
+      background-color: #006efb;
+      height: 100vh;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    .bottom{
+      width:75%;
+      background-color: #fff;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+
+    }
+
+    ion-content{
+      --background:#fff;
+    }
+
+    ion-card{
+      width: 80%;
+      min-height: 450px;
+      margin:auto;
+      --background: #ffffff;
+      position: relative;
+      top: 0;
+      left: 0;
+      border-radius: 20px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+      
+    
+    }
+
+    ion-header{
+      display: none;
+    }
+
+    .btn-container{
+      display: none;
+    }
+
+    .btn-Contdesd{
+      display: block;
+      width: 70%;
+      margin: 4em auto auto auto;
+    }
+
+    .btn-Contdesd > div  > ion-button{
+      width: 80%;
+    }
+
  
-  }
+
+    h4{
+      font-family: Söhne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 2.0rem;
+      line-height: 1.12;
+      font-weight: 500;
+      letter-spacing: 0px;
+    }
+
+    p{
+      margin: 0px 0px 1.6em;
+      font-family: Söhne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 1.25rem;
+      line-height: 1.6;
+      letter-spacing: 0.01em;
+      font-weight: 400;
+      color: #dffcff;
+    }
   
 }
 

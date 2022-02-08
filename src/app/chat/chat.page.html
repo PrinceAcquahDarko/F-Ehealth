@@ -1,7 +1,10 @@
 
-<ion-content>
+<ion-content class="desktop">
+
   <div>
     <section>
+
+
       <h2>Chat</h2>
       <div class="main">
         <ion-grid>
@@ -79,49 +82,9 @@
               </div>
               </ion-col>
               <ion-col  size-md="6">
-                <section class="second">
-                  <ion-card>
-                    <div >
-                      <img src="assets/imgs/doc2.jpg" alt="">
-                      <div>
-                        <h6>Charity Koomson</h6>
-                        <small>active 4hr ago</small>
-                      </div>
-                      <ion-icon name="danger"></ion-icon>
-                    </div>
-                  </ion-card>
-                </section>
-                <section class="mainMsg">
-                    <ion-card>
-                      <div class="msgContainer smallmargin">
-                        <div>
-                          <span>Lorem ipsum dolomodi iste consectetur saepe, ipsum nostrum?</span>
-                        </div>
-                        <small></small>
-                      </div>
-                      <div class="fromHim">
-                        <div>
-                          <span>Lorem ipsum dolomodi iste consectetur saepe, ipsum nostrum?</span>
-                        </div>
-                        <small></small>
-                      </div>
-                      <div class="msgContainer">
-                        <div>
-                          <span>Lorem ipsum dolomodi iste consectetur saepe, ipsum nostrum?</span>
-                        </div>
-                        <small></small>
-                      </div>
-                      <div class="fromHim">
-                        <div>
-                          <span>Lorem ipsum dolomodi iste consectetur saepe, ipsum nostrum?</span>
-                        </div>
-                        <small></small>
-                      </div>
+          <app-chat-in></app-chat-in>
 
-                        <ion-input placeholder="Type message here"><ion-icon   name="mail"></ion-icon> </ion-input>
 
-                    </ion-card>
-                </section>
               </ion-col>
               </ion-row>
               </ion-grid>
@@ -131,3 +94,187 @@
   </div>
   
 </ion-content>
+
+<!-- for mobile -->
+
+
+<ion-content class="mobile mobContent">
+ 
+
+  <ion-list>
+
+    <ion-item routerLink="/dashboard/interface">
+      <ion-avatar slot="start">
+        <img src="assets/imgs/doc2.jpg" />
+      </ion-avatar>
+      <ion-label>
+        <h2>Poe</h2>
+        <p>I just upgraded myng. Next time...</p>
+      </ion-label>
+      <ion-badge slot="end" color="primary">3</ion-badge>
+
+    </ion-item>
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="assets/imgs/doc2.jpg" />
+      </ion-avatar>
+      <ion-label>
+        <h2>Poe</h2>
+        <p>I just upgraded myng. Next time...</p>
+      </ion-label>
+      <ion-badge slot="end" color="primary">3</ion-badge>
+
+    </ion-item>
+    <ion-item >
+      <ion-avatar slot="start">
+        <img src="assets/imgs/doc2.jpg" />
+      </ion-avatar>
+      <ion-label>
+        <h2>Poe</h2>
+        <p>I just upgraded myng. Next time...</p>
+      </ion-label>
+      <ion-badge slot="end" color="primary">3</ion-badge>
+
+    </ion-item>
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="assets/imgs/doc2.jpg" />
+      </ion-avatar>
+      <ion-label>
+        <h2>Poe</h2>
+        <p>I just upgraded myng. Next time...</p>
+      </ion-label>
+      <ion-badge slot="end" color="primary">3</ion-badge>
+
+    </ion-item>
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="assets/imgs/doc2.jpg" />
+      </ion-avatar>
+      <ion-label>
+        <h2>Poe</h2>
+        <p>I just upgraded myng. Next time...</p>
+      </ion-label>
+      <ion-badge slot="end" color="primary">3</ion-badge>
+
+    </ion-item>
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="assets/imgs/doc2.jpg" />
+      </ion-avatar>
+      <ion-label>
+        <h2>Poe</h2>
+        <p>I just upgraded myng. Next time...</p>
+      </ion-label>
+      <ion-badge slot="end" color="primary">3</ion-badge>
+
+    </ion-item>
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="assets/imgs/doc2.jpg" />
+      </ion-avatar>
+      <ion-label>
+        <h2>Poe</h2>
+        <p>I just upgraded myng. Next time...</p>
+      </ion-label>
+      <ion-badge slot="end" color="primary">3</ion-badge>
+
+    </ion-item>
+
+
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="assets/imgs/doc3.jpg" />
+      </ion-avatar>
+      <ion-label>
+        <h2>Ben</h2>
+        <p>These aren't the droidsoking for...</p>
+      </ion-label>
+      <ion-badge slot="end" color="primary">3</ion-badge>
+
+    </ion-item>
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="assets/imgs/doc3.jpg" />
+      </ion-avatar>
+      <ion-label>
+        <h2>Ben</h2>
+        <p>These aren't the droidsoking for...</p>
+      </ion-label>
+      <ion-badge slot="end" color="primary">3</ion-badge>
+
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="assets/imgs/doc3.jpg" />
+      </ion-avatar>
+      <ion-label>
+        <h2>Ben</h2>
+        <p>These aren't the droidsoking for...</p>
+      </ion-label>
+      <ion-badge slot="end" color="primary">3</ion-badge>
+
+    </ion-item>
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="assets/imgs/doc3.jpg" />
+      </ion-avatar>
+      <ion-label>
+        <h2>Ben</h2>
+        <p>These aren't the droidsoking for...</p>
+      </ion-label>
+      <ion-badge slot="end" color="primary">3</ion-badge>
+
+    </ion-item>
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="assets/imgs/doc3.jpg" />
+      </ion-avatar>
+      <ion-label>
+        <h2>Ben</h2>
+        <p>These aren't the droidsoking for...</p>
+      </ion-label>
+      <ion-badge slot="end" color="primary">3</ion-badge>
+
+    </ion-item>
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="assets/imgs/doc3.jpg" />
+      </ion-avatar>
+      <ion-label>
+        <h2>Ben</h2>
+        <p>These aren't the droidsoking for...</p>
+      </ion-label>
+      <ion-badge slot="end" color="primary">3</ion-badge>
+
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="assets/imgs/doc4.jpg" />
+      </ion-avatar>
+      <ion-label>
+        <h2>Leia</h2>
+        <p>I've placed information v survival...</p>
+      </ion-label>
+      <ion-badge slot="end" color="primary">3</ion-badge>
+
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="./assets/imgs/nurse1.jpg" />
+      </ion-avatar>
+      <ion-label>
+        <h2>Yoda</h2>
+        <p>Do or do not. There is no try...</p>
+      </ion-label>
+      <ion-badge slot="end" color="primary">3</ion-badge>
+
+    </ion-item>
+  </ion-list>
+  
+</ion-content>
+
+

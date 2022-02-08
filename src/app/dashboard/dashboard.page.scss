@@ -45,11 +45,19 @@
   }
 
   
-
+  app-header{
+    display: none;
+  }
   @media only screen and (max-width: 915px) {
       .routes{
         display:none
       }
+
+      app-header{
+        display: block;
+      }
+
+     
 
       .mainContainer{
         width: 100%;
