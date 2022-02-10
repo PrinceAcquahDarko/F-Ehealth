@@ -1,10 +1,12 @@
- <section class="second">
+ <div *ngIf="user">
+
+  <section class="second" >
         <ion-card>
               <div >
-                <img src="assets/imgs/doc2.jpg" alt="">
+                <img [src]="user.pic" alt="">
                 <div>
-                  <h6>Charity Koomson</h6>
-                  <small>active 4hr ago</small>
+                  <h6>{{user.firstname}}</h6>
+                  <small *ngIf="user.online">online</small>
                 </div>
                 <ion-icon name="danger"></ion-icon>
               </div>
@@ -12,43 +14,25 @@
 </section>
 <section class="mainMsg">
                     <ion-card>
-                      <ion-card-content>
-                        <div class="msgContainer smallmargin">
+                      <ion-card-content >
+                        <div  *ngFor="let msg of chat"  [ngClass]="{'msgContainer' : msg.textSort === currentUser, 'fromHim': msg.textSort !==currentUser}">
                           <div>
-                            <span>Lorem ipsum dolomodi iste consectetur saepe, ipsum nostrum?</span>
+                            <span>{{msg.content}}</span>
                           </div>
                           <small></small>
                         </div>
-                        <div class="fromHim">
-                          <div>
-                            <span>Lorem ipsu\rum?</span>
-                            <div>
-                              <small>4.00</small>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="msgContainer">
-                          <div>
-                            <span>Lo</span>
-                            <div>
-                              <small>4.00</small>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="fromHim">
-                          <div>
-                            <span>Lorerum?</span>
-                            <div>
-                              <small>4.00</small>
-                            </div>
-                            
-                          </div>
-                        </div>
+          
                       </ion-card-content>
                    
                         <div class="inputContainer">
-                          <ion-input placeholder="Type message here"><ion-icon   name="mail"></ion-icon> </ion-input>
+                          <div>
+                            <ion-input placeholder="Type message here"  #msgField = 'ngModel'  [(ngModel)]="inputmsg.content"  required name="msg" ngDefaultControl><ion-icon   name="mail"></ion-icon> </ion-input>
+                            <ion-icon slot="start" name="send" (click)="sendMessage()" ></ion-icon>
+                          </div>
+                         
                         </div>
 
                     </ion-card>
   </section>
+
+</div>

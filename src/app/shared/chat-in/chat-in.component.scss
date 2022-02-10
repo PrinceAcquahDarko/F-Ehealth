@@ -39,6 +39,11 @@ ion-icon{
     overflow-y: auto;
 } 
 
+.mainMsg>ion-card{
+    width: 420px;
+    height: 420px;
+}
+
 .msgContainer{
     width: 70%;
     padding:10px;
@@ -51,13 +56,13 @@ ion-icon{
 }
 
 .fromHim > div{
-    min-width: 200px;
+    width: 200px;
     background-color: #7080d5;
     border-radius: 16px;
     padding:6px;
     float: right;
-    margin-top:20px;
-    margin-bottom:20px;
+    margin-bottom: 5px;
+
    
 }
 
@@ -75,12 +80,15 @@ ion-icon{
 }
 
 .msgContainer > div{
-    min-width: 200px;
+    width: 200px;
 
     background-color: #eef2fd;
     border-radius: 16px;
-    padding:6px;
+    padding:12px;
     float: left;
+    margin-bottom: 5px;
+
+
 
 
 
@@ -93,10 +101,26 @@ ion-card > div > img{
     margin-top: 4px;
 
 }
+.inputContainer{
+    width: 100%;
 
-.inputContainer > ion-input{
-    width: 80%;
-    margin:auto;
+
+}
+.inputContainer > div{
+    display:flex;
+    align-items:center;
+    justify-content:space-evenly;
+    width:80%;
+    margin:auto
+}
+
+.inputContainer > div > ion-icon{
+    margin-top:10px
+}
+
+.inputContainer > div > ion-input{
+    width: 10px;
+    // margin:auto;
     box-shadow: none;
     background: #eef2fd;
     margin-top:20px;

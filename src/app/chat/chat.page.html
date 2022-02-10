@@ -12,79 +12,23 @@
             <ion-col size-md="6">
               <div>
                 <ion-input placeholder="Search"><ion-icon   name="Search"></ion-icon> </ion-input>
-                <section>
-                  <ion-card>
+                <section *ngFor="let sub of allSubs">
+                  <ion-card (click)="setUser(sub)">
                     <div >
-                      <img src="assets/imgs/doc1.jpg" alt="">
+                      <img [src]="sub.pic" alt="">
                       <div>
-                        <h6>Prince </h6>
-                        <small>Its about to go down boi</small>
+                        <h6>{{sub.firstname}} {{sub.lastname}}</h6>
+                        <small>{{sub.online}}</small>
                       </div>
-                      <ion-badge color="primary">3</ion-badge>
+                      <ion-badge  [ngClass]="{'Cblue' : sub.online === true, 'Cred': sub.online !==true}">{{sub.messages}}</ion-badge>
                     </div>
                   </ion-card>
-                  <ion-card>
-                    <div >
-                      <img src="assets/imgs/doc2.jpg" alt="">
-                      <div>
-                        <h6>Abigail Sarks</h6>
-                        <small>Hey Prince :)</small>
-                      </div>
-                      <ion-badge color="primary">1</ion-badge>
-
-                    </div>
-                  </ion-card>
-                  <ion-card>
-                    <div >
-                      <img src="assets/imgs/doc3.jpg" alt="">
-                      <div>
-                        <h6>Kwame Prince</h6>
-                        <small>Everything is gonna be</small>
-                      </div>
-                      <ion-badge color="primary">1</ion-badge>
-
-                    </div>
-                  </ion-card>
-                  <ion-card>
-                    <div >
-                      <img src="assets/imgs/doc4.jpg" alt="">
-                      <div>
-                        <h6>King</h6>
-                        <small>Its about to go down boi</small>
-                      </div>
-                      <ion-badge color="primary">4</ion-badge>
-
-                    </div>
-                  </ion-card>
-                  <ion-card>
-                    <div >
-                      <img src="assets/imgs/nurse1.jpg" alt="">
-                      <div>
-                        <h6>Abena</h6>
-                        <small>Its about to go down boi</small>
-                      </div>
-                      <ion-badge color="primary">6</ion-badge>
-
-                    </div>
-                  </ion-card>
-                  <ion-card>
-                    <div >
-                      <img src="assets/imgs/nurse2.jpg" alt="">
-                      <div>
-                        <h6>Ama </h6>
-                        <small>Its about to go down boi</small>
-                      </div>
-                      <ion-badge color="primary">2</ion-badge>
-
-                    </div>
-                  </ion-card>
+             
                 </section>
               </div>
               </ion-col>
               <ion-col  size-md="6">
-          <app-chat-in></app-chat-in>
-
-
+                   <app-chat-in [user] = 'user' [chat] = 'chat'></app-chat-in>
               </ion-col>
               </ion-row>
               </ion-grid>

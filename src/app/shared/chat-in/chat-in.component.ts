@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ChatServiceService } from '../../chat-service.service';
 
 @Component({
   selector: 'app-chat-in',
@@ -6,9 +7,52 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./chat-in.component.scss'],
 })
 export class ChatInComponent implements OnInit {
+  @Input() user:any;
+  @Input() chat = []
+  inputmsg ={
+    content: ''
+  }
+  currentUser = this.cs.userId
+  
 
-  constructor() { }
+  constructor(private cs:ChatServiceService) { }
 
-  ngOnInit() {}
+  
+
+  ngOnInit() {
+    this.cs.socket.on("private message", (data) => {
+      console.log(data)
+      if(data.from === this.user.uniqueNum){
+        let obj = {
+          content: data.content,
+          from : data.from
+        }
+        this.chat.push(obj)
+      }else{
+        // alert('you have a new msg')
+      }
+    
+       
+     });
+  }
+
+  sendMessage(){
+    //console.log()
+    // alert(this.inputmsg.content)
+    let obj = {
+      content:this.inputmsg.content,
+      to: this.user.uniqueNum,
+      from: this.currentUser,
+      textSort:this.currentUser,
+      health: false,
+      connection: this.user.online
+    }
+    if(this.cs.lstorage.status === 'health'){
+      obj.health = true
+    }
+    this.cs.socket.emit("private message", obj)
+    this.chat.push(obj)
+    this.inputmsg.content = ''
+  }
 
 }

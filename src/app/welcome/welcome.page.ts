@@ -51,8 +51,9 @@ export class WelcomePage implements OnInit {
       let data = this.formatValue()
       this.genService.registerUser(data).subscribe(
         res => {
-          localStorage.setItem('token', JSON.stringify(res.token));
-          localStorage.setItem('firstname', JSON.stringify(data.firstname));
+          localStorage.setItem('Info', JSON.stringify(res.user));
+          // localStorage.setItem('num', JSON.stringify(res.user.num));
+          // localStorage.setItem('firstname', JSON.stringify(data.firstname));
           this.router.navigate(['dashboard'])
         },
         err => {

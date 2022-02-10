@@ -18,6 +18,13 @@ export class GeneralService {
     )
   }
 
+  getAllHealthUsers(): Observable<any>{
+    return this.http.get<Iregister>(this.url + '/api-register')
+    .pipe(
+      catchError(this.handleError)
+    )
+  }
+
   loginUser(data:Ilogin): Observable<any>{
     return this.http.post<Ilogin>(this.url + '/api-login', data)
     .pipe(
@@ -30,14 +37,12 @@ export class GeneralService {
     let message = '';
 
 
-    //it seems i changed the arrangement in the erros at the backend side i think i have to turn the
-    // super back to the original and see but not now
     if(err.error instanceof ErrorEvent){
       console.log(err, 'from an instance')
       message = `an error occured: ${err.error.message}`
     }
     else{
-      console.log(err.error, 'from not an instance')
+      console.log(err, 'from not an instance')
       message =  err.error
     }
 

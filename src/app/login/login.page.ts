@@ -21,8 +21,9 @@ export class LoginPage implements OnInit {
   loginUser(): void{
       this.genService.loginUser(this.userCredentials).subscribe(
         res => {
-          localStorage.setItem('token', JSON.stringify(res.token));
-          localStorage.setItem('firstname', JSON.stringify(res.firstname));
+          localStorage.setItem('Info', JSON.stringify(res.response));
+          // localStorage.setItem('firstname', JSON.stringify(res.response.firstname));
+          // localStorage.setItem('num', JSON.stringify(res.response.num));
           this.router.navigate(['dashboard'])
 
         },

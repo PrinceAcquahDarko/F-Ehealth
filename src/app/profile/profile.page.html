@@ -1,20 +1,16 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>profile</ion-title>
-  </ion-toolbar>
-</ion-header>
+
 
 <ion-content>
   <ion-card>
     <ion-card-content>
-      <section class="upper">
+      <section class="upper" *ngIf="user">
         <div>
-          <img src="assets/imgs/nurse1.jpg" alt="">
+          <img [src]="user.pic" alt="">
           <div class="meta">
             <div >
-              <h2>Prince Darko</h2>
+              <h2>{{user.firstname}} {{user.lastname}}</h2>
               <h3>Head Doctor, Tema General Hospital</h3>
-              <ion-button color="primary" routerLink="/dashboard/chat">Chat Me</ion-button>
+              <ion-button color="primary"  (click)="chat()">Chat Me</ion-button>
             </div>
          
           </div>

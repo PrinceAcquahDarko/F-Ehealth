@@ -4,6 +4,8 @@ export interface Iregister{
     email:string,
     password:string,
     confirmPasswrod?:string,
+    status?:string,
+    pic?:string
 }
 
 
