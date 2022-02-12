@@ -8,6 +8,7 @@ import * as io from 'socket.io-client'
 @Injectable({
   providedIn: 'root'
 })
+
 export class ChatServiceService {
   url = environment.url
   socket:any;
