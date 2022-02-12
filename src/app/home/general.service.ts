@@ -11,7 +11,7 @@ import {environment} from "../../environments/environment"
 })
 export class GeneralService {
   lstorage = JSON.parse(localStorage.getItem("Info")!)
-  userId = this.lstorage.num
+  
   url = environment.url
   constructor(private http: HttpClient) { }
 
@@ -23,6 +23,7 @@ export class GeneralService {
   }
 
   getAllHealthUsers(): Observable<any>{
+
     return this.http.get<Iregister>(this.url + '/api-register')
     .pipe(
       catchError(this.handleError)
@@ -30,14 +31,16 @@ export class GeneralService {
   }
 
   getSingleUser():Observable<any>{
-    return this.http.get<Iregister>(this.url + '/api-register/id' + '?id=' +this.userId)
+   const  userId = this.lstorage.num
+    return this.http.get<Iregister>(this.url + '/api-register/id' + '?id=' +userId)
     .pipe(
       catchError(this.handleError)
     )
   }
 
   updateUser(data):Observable<any>{
-    return this.http.put<Iregister>(this.url + '/api-register' + '?id=' +this.userId, data)
+   const  userId = this.lstorage.num
+    return this.http.put<Iregister>(this.url + '/api-register' + '?id=' +userId, data)
     .pipe(
       catchError(this.handleError)
     )

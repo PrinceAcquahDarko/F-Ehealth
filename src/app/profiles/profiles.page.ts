@@ -33,6 +33,7 @@ export class ProfilesPage implements OnInit {
     }, (err) =>{
       this.loading.dismiss()
       // alert('hmm something went wrong')
+      console.log(err)
       this.errmsg = 'hmmm something went wrong we will get back to you'
     })
   }

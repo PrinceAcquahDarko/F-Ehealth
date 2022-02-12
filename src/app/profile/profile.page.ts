@@ -10,6 +10,7 @@ import { ChatServiceService } from '../chat-service.service';
 })
 export class ProfilePage implements OnInit {
   userList  = []
+  status = this.cs.lstorage.status
   user = this.router.getCurrentNavigation().extras.state
   socket = this.cs.socket
  online =  this.cs.users.filter(x => x.id === this.user.uniqueNum).length ? true : false

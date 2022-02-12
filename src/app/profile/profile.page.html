@@ -10,7 +10,7 @@
             <div >
               <h2>{{user.firstname}} {{user.lastname}}</h2>
               <h3>Head Doctor, Tema General Hospital</h3>
-              <ion-button color="primary"  (click)="chat()">Chat Me</ion-button>
+              <ion-button color="primary" *ngIf="status === 'user' "  (click)="chat()">Chat Me</ion-button>
             </div>
          
           </div>

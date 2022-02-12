@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   {
@@ -12,33 +13,19 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'dashboard',
+    path: 'dashboard',canActivate: [AuthGuard],
     loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule)
   },
+
   // {
-  //   path: 'profiles',
-  //   loadChildren: () => import('./profiles/profiles.module').then( m => m.ProfilesPageModule)
+  //   path: 'notifications',
+  //   loadChildren: () => import('./notifications/notifications.module').then( m => m.NotificationsPageModule)
   // },
+
   // {
-  //   path: 'profile',
-  //   loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
-  // },
-  // {
-  //   path: 'chat',
-  //   loadChildren: () => import('./chat/chat.module').then( m => m.ChatPageModule)
-  // },
-  {
-    path: 'notifications',
-    loadChildren: () => import('./notifications/notifications.module').then( m => m.NotificationsPageModule)
-  },
-  // {
-  //   path: 'settings',
-  //   loadChildren: () => import('./settings/settings.module').then( m => m.SettingsPageModule)
-  // },
-  {
-    path: 'chat-interface',
-    loadChildren: () => import('./chat-interface/chat-interface.module').then( m => m.ChatInterfacePageModule)
-  }
+  //   path: 'chat-interface',
+  //   loadChildren: () => import('./chat-interface/chat-interface.module').then( m => m.ChatInterfacePageModule)
+  // }
 
 ];
 
