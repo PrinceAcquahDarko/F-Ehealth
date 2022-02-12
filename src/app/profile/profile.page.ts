@@ -21,7 +21,6 @@ export class ProfilePage implements OnInit {
   }
 
   async chat(){
-    // console.log(this.cs.allSubs)
     let sub = this.cs.allSubs.filter(x => x.uniqueNum === this.user.uniqueNum).length ? true : false
     if(sub){
       this.router.navigate(['dashboard/chat'])
@@ -31,7 +30,8 @@ export class ProfilePage implements OnInit {
       cssClass: 'my-alert-class',
       header: 'Confirm',
       message: ` <small>You are about to send a request to ${this.user.firstname}. If he's online (he's ${this.online ? 'online' : 'offline'}) you should be redirected in no time
-      else he's going to accept it when he's online. You can also log in as ${this.user.firstname} by this link </small>
+      else he's going to accept it when he's online. You can also log in as ${this.user.firstname} by following this 
+      <a href="https://github.com/PrinceAcquahDarko/E-health#readme" target="_blank">guide</a>  </small>
       `,
       buttons:[
         {
@@ -54,7 +54,6 @@ export class ProfilePage implements OnInit {
   }
 
 requestChat(){
-  console.log(this.user, 'from user is online')
   this.socket.emit("request message", {
     content: `you have a new chat request`,
     to: this.user.uniqueNum,

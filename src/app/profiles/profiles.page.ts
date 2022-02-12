@@ -13,6 +13,8 @@ export class ProfilesPage implements OnInit {
   
   errmsg!:string
   allUsers = []
+   intitial = []
+
   
 
   loading:any
@@ -29,11 +31,10 @@ export class ProfilesPage implements OnInit {
       map(x => x.users)
     ).subscribe(res => {
       this.allUsers = res
+      this.intitial = res
       this.loading.dismiss()
     }, (err) =>{
       this.loading.dismiss()
-      // alert('hmm something went wrong')
-      console.log(err)
       this.errmsg = 'hmmm something went wrong we will get back to you'
     })
   }
@@ -53,8 +54,8 @@ export class ProfilesPage implements OnInit {
   }
 
   fire(position){
-    // this.searchedptn.next(position)
-    this.allUsers.filter((i: { position: string; }) => position ?  i.position === position.trim() : true)
+    let filtered = this.allUsers.filter(x => x.profession?.toLowerCase() === position.toLowerCase())
+     filtered.length ? this.allUsers = filtered : this.allUsers = this.intitial
 
   }
 

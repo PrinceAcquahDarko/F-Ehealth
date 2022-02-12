@@ -32,7 +32,6 @@ export class SettingsPage implements OnInit {
     this.genservice.getSingleUser().subscribe(
       res => {
        let x = res.user
-        console.log(x);
         this.format(x)
       }
     )
@@ -57,17 +56,10 @@ export class SettingsPage implements OnInit {
     formdata.append('password', this.credentials.password)
 
     }
-    // formdata.append('starttime', this.settings.starttime)
-    // formdata.append('endtime', this.settings.endtime)
 
-    // this.orgservice.updateOrg(this.name, formdata).subscribe(
-    //   res => {this.show = false; this.errorOrConfrimsg = 'updated successfully'},
-    //   err => {this.show = false; this.errorOrConfrimsg = 'an error occured please try agian later'}
-    // )
 
     this.genservice.updateUser(formdata).subscribe(
-      res => console.log('updated succesfully'),
-      err => console.log(err)
+      res =>alert('updated successfully'),
     )
   }
 

@@ -24,7 +24,6 @@ export class ChatInComponent implements OnInit {
     this.cs.socket.on("private message", (data) => {
 
       try {
-        console.log(this.user.uniqueNum, 'from uniqye num')
         if(data.from === this.user.uniqueNum){
           let day = new Date().toString()
           let obj = {
@@ -37,7 +36,6 @@ export class ChatInComponent implements OnInit {
           // alert('you have a new msg')
         }
       } catch (error) {
-        console.log(error)
       }
       
     
@@ -46,7 +44,6 @@ export class ChatInComponent implements OnInit {
   }
 
   sendMessage(){
-    //console.log()
     let day = new Date().toString()
     
     // alert(this.inputmsg.content)
@@ -61,7 +58,6 @@ export class ChatInComponent implements OnInit {
 
     }
 
-    console.log(obj.day)
     if(this.cs.lstorage.status === 'health'){
       obj.health = true
     }
@@ -79,7 +75,6 @@ export class ChatInComponent implements OnInit {
     try {
         this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight
     } catch (error) {
-        console.log(error)
     }
   }
 

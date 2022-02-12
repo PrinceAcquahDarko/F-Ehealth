@@ -13,10 +13,7 @@ export class NotificationsPage implements OnInit {
     map(x =>{
       let res = x.users;
       res.forEach(noti => {
-        console.log(noti)
-        console.log(noti.day)
         noti.day =  noti.day.substring(16, 21) //for time
-        //for date (1,10)
       });
       return res
     } )
@@ -24,7 +21,6 @@ export class NotificationsPage implements OnInit {
   constructor(private cs: ChatServiceService) { }
 
   ngOnInit() {
-      console.log('hey whats up')
 
   }
 

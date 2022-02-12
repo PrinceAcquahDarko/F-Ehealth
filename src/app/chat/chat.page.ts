@@ -14,40 +14,15 @@ export class ChatPage implements OnInit {
   loading:any
   user: any
   chat = [];
-  msgs!:string
+  msgs!:string;
+  socket = this.cs.socket
   allSubs = this.cs.allSubs
-  // allSubs$ = this.cs.getAllSubs().pipe(
-  //   map(x =>{
-  //     let users =  x.users
-  //     users.forEach(user => {
-  //       if(this.cs.lstorage.status ==='user'){
-  //         console.log(this.cs.lstorage.status)
-  //         user.online =  this.cs.users.filter(x => x.id === user.toUser.uniqueNum).length ? true : false
-  //         user.pic = user.toUser.pic
-  //         user.firstname = user.toUser.firstname
-  //         user.lastname = user.toUser.lastname
-  //         user.uniqueNum = user.toUser.uniqueNum
-  //       }else{
-  //         console.log(this.cs.lstorage.status)
-  //         user.online =  this.cs.users.filter(x => x.id === user.fromUser.uniqueNum).length ? true : false
-  //         user.pic = user.fromUser.pic
-  //         user.firstname = user.fromUser.firstname
-  //         user.lastname = user.fromUser.lastname
-  //         user.uniqueNum = user.fromUser.uniqueNum
 
-
-  //       }
-  //     });
-  //     return users
-  //   }),
-  //   tap(x => console.log(x))
-  // )
   userInput!:string
   constructor(private cs:ChatServiceService, private router:Router, public loadingController: LoadingController) { }
 
   ngOnInit() {
     // this.getAllSubs();
-    console.log(this.cs.users, 'from checking all users')
     
     if(!this.cs.allSubs.length){
       // this.router.navigate(['dashboard/profiles'])
@@ -64,13 +39,13 @@ export class ChatPage implements OnInit {
       })
     }
 
+ 
+
   }
 
   fire(event){
      let filtered = this.allSubs.filter(x => x.firstname.toLowerCase().includes(this.userInput.toLowerCase()))
      filtered.length ? this.allSubs = filtered : false
-     console.log(this.allSubs)
-  // this.allSubs = this.allSubs.filter((i: { firstname: string; }) => this.userInput ?  i.firstname.toLowerCase().includes(this.userInput.toLowerCase() ): this.allSubs)
 
   }
 
@@ -88,31 +63,13 @@ export class ChatPage implements OnInit {
         let users =  x.users
         users.forEach(user => {
           user.messages = 0
-          if(this.cs.lstorage.status ==='user'){
-            console.log(this.cs.lstorage.status)
-            user.online =  this.cs.users.filter(x => x.id === user.toUser.uniqueNum).length ? true : false
-            user.pic = user.toUser.pic
-            user.firstname = user.toUser.firstname
-            user.lastname = user.toUser.lastname
-            user.uniqueNum = user.toUser.uniqueNum
-          }else{
-            console.log(this.cs.lstorage.status)
-            user.online =  this.cs.users.filter(x => x.id === user.fromUser.uniqueNum).length ? true : false
-            user.pic = user.fromUser.pic
-            user.firstname = user.fromUser.firstname
-            user.lastname = user.fromUser.lastname
-            user.uniqueNum = user.fromUser.uniqueNum
-  
-  
-          }
+          this.formatUser(user)
         });
         return users
-      }),
-      tap(x => console.log(x))
+      })
     ).subscribe(x => {
       if(x && x.length){
         this.cs.allSubs = x
-        console.log(this.cs.allSubs, 'from allSubs')
           this.allSubs = this.cs.allSubs
       }else{
         this.msgs = 'You have no chats yet'
@@ -153,6 +110,23 @@ export class ChatPage implements OnInit {
     return loading
 
    
+  }
+
+  formatUser(user){
+    if(this.cs.lstorage.status ==='user'){
+      user.online =  this.cs.users.filter(x => x.id === user.toUser.uniqueNum).length ? true : false
+      user.pic = user.toUser.pic
+      user.firstname = user.toUser.firstname
+      user.lastname = user.toUser.lastname
+      user.uniqueNum = user.toUser.uniqueNum
+    }else{
+      user.online =  this.cs.users.filter(x => x.id === user.fromUser.uniqueNum).length ? true : false
+      user.pic = user.fromUser.pic
+      user.firstname = user.fromUser.firstname
+      user.lastname = user.fromUser.lastname
+      user.uniqueNum = user.fromUser.uniqueNum
+    }
+
   }
 
 

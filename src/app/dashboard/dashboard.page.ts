@@ -19,12 +19,10 @@ export class DashboardPage implements OnInit {
   private router: Router, public toastController: ToastController) { }
 
    ngOnInit() {
-     console.log(new Date())
     this.socket =  this.cs.initiliazeSocket()
 
      this.getAllSubs().subscribe(x => {
        this.cs.allSubs = x
-       console.log(x, 'from xxxeefd')
        this.allSockets()
       })
       
@@ -49,27 +47,10 @@ export class DashboardPage implements OnInit {
           }else{
             user.messages = 0
           }
-          if(this.cs.lstorage.status ==='user'){
-            console.log(this.cs.users.filter(x => x.id === user.toUser.uniqueNum).length, 'from fops')
-            user.online =  this.cs.users.filter(x => x.id === user.toUser.uniqueNum).length ? true : false
-            user.pic = user.toUser.pic
-            user.firstname = user.toUser.firstname
-            user.lastname = user.toUser.lastname
-            user.uniqueNum = user.toUser.uniqueNum
-          }else{
-            console.log(this.cs.users.filter(x => x.id === user.fromUser.uniqueNum).length, 'from sops')
-            user.online =  this.cs.users.filter(x => x.id === user.fromUser.uniqueNum).length ? true : false
-            user.pic = user.fromUser.pic
-            user.firstname = user.fromUser.firstname
-            user.lastname = user.fromUser.lastname
-            user.uniqueNum = user.fromUser.uniqueNum
-  
-  
-          }
+          this.formatUser(user)
         });
         return users
-      }),
-      tap(x => console.log(x))
+      })
     )
   }
 
@@ -92,8 +73,12 @@ export class DashboardPage implements OnInit {
     });
 
     this.socket.on("confirm message", (data) => {
-      console.log(data.content)
-      console.log(data.from)
+      let user = data.sub
+      user.messages = 0;
+       this.formatUser(user)
+      this.cs.allSubs.push(user)
+
+
  
     if(this.cs.lstorage.status === 'user'){
       this.notifications += 1
@@ -115,16 +100,13 @@ export class DashboardPage implements OnInit {
       })
     
       this.socket.on("savedChats", (data) => {
-        // alert(data.content)
         this.msgs += 1
         let user =  this.cs.allSubs.find(x => x.uniqueNum === data.from)
         user.messages += 1
       })
 
       this.socket.on("savedNoti",async (data)=>{
-        // alert('you have new notifications');
         this.presentToastWithOptions('Notifications', 'you have new notifications')
-        console.log(this.cs.users.filter(x => x.id === data.from).length ? true : false, 'from online')
         this.notifications += 1
         if(this.cs.lstorage.status === 'health'){
           let day = new Date().toString()
@@ -180,6 +162,23 @@ export class DashboardPage implements OnInit {
 
   logout(){
     this.router.navigate(['home'])
+  }
+
+  formatUser(user){
+    if(this.cs.lstorage.status ==='user'){
+      user.online =  this.cs.users.filter(x => x.id === user.toUser.uniqueNum).length ? true : false
+      user.pic = user.toUser.pic
+      user.firstname = user.toUser.firstname
+      user.lastname = user.toUser.lastname
+      user.uniqueNum = user.toUser.uniqueNum
+    }else{
+      user.online =  this.cs.users.filter(x => x.id === user.fromUser.uniqueNum).length ? true : false
+      user.pic = user.fromUser.pic
+      user.firstname = user.fromUser.firstname
+      user.lastname = user.fromUser.lastname
+      user.uniqueNum = user.fromUser.uniqueNum
+    }
+
   }
 
 }

@@ -21,12 +21,10 @@ export class ChatInterfacePage implements OnInit {
   constructor(private router:Router, private cs:ChatServiceService, public loadingController: LoadingController) {}
 
   ngOnInit() {
-      console.log(this.user)
       this.getChats()
       this.cs.socket.on("private message", (data) => {
         let day = new Date().toString()
 
-        console.log(data)
         if(data.from === this.user.uniqueNum){
           let obj = {
             content: data.content,
@@ -34,8 +32,6 @@ export class ChatInterfacePage implements OnInit {
             day: day.substring(16, 21)
           }
           this.chat.push(obj)
-        }else{
-          // alert('you have a new msg')
         }
       
          
@@ -73,7 +69,6 @@ export class ChatInterfacePage implements OnInit {
     this.cs.getChats(this.cs.userId, this.user.uniqueNum).subscribe(
      res => {
        this.chat = res.users
-      //  console.log(this.chat)
      
       this.chat.forEach(ch => {
         ch.day = ch.day.substring(16, 21)
@@ -109,7 +104,6 @@ export class ChatInterfacePage implements OnInit {
     try {
         this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight
     } catch (error) {
-        console.log(error)
     }
   }
 

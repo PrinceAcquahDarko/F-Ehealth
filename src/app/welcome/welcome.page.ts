@@ -49,26 +49,20 @@ export class WelcomePage implements OnInit {
   registerUser(): void{
     this.show = true
     if(this.registerForm?.valid){
-      // this.show = true;
       let data = this.formatValue()
       this.genService.registerUser(data).subscribe(
         res => {
           localStorage.setItem('Info', JSON.stringify(res.user));
-          // localStorage.setItem('num', JSON.stringify(res.user.num));
-          // localStorage.setItem('firstname', JSON.stringify(data.firstname));
+       
           this.router.navigate(['dashboard'])
         },
         err => {
-          console.log(err)
           this.show = false
           this.errormsg = err;
-          // this.show = false
 
         },
-        // () => this.show = false
       )
     }
-    // alert(this.registerForm.value)
   }
 
   formatValue(){
