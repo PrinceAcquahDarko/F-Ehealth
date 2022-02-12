@@ -34,37 +34,51 @@ ion-icon{
 
 .mainMsg > ion-card > ion-card-content{
     width: 420px;
-    height: 340px;
+    height: 100%;
     overscroll-behavior-y: auto;
     overflow-y: auto;
 } 
 
 .mainMsg>ion-card{
     width: 420px;
-    height: 420px;
+    height: 350px;
+    margin-bottom: 0;
+}
+.bottomCard{
+    margin-top: 0;
+    width: 420px;
+    height: 50px !important ;
+    display: flex;
+    align-items: center;
 }
 
 .msgContainer{
-    width: 70%;
+    width: 100%;
     padding:10px;
+    overflow:auto
 }
 .fromHim{
     width: 100%;
     padding:10px;
+    overflow:auto;
     // text-align: right;
     
 }
 
 .fromHim > div{
-    width: 200px;
+    width: 120px;
     background-color: #7080d5;
     border-radius: 16px;
-    padding:6px;
+    padding:10px;
     float: right;
     margin-bottom: 5px;
 
    
 }
+
+
+  
+
 
 
 
@@ -80,11 +94,11 @@ ion-icon{
 }
 
 .msgContainer > div{
-    width: 200px;
+    width: 120px;
 
     background-color: #eef2fd;
     border-radius: 16px;
-    padding:12px;
+    padding:10px;
     float: left;
     margin-bottom: 5px;
 
@@ -114,18 +128,16 @@ ion-card > div > img{
     margin:auto
 }
 
-.inputContainer > div > ion-icon{
-    margin-top:10px
-}
+
 
 .inputContainer > div > ion-input{
     width: 10px;
     // margin:auto;
     box-shadow: none;
     background: #eef2fd;
-    margin-top:20px;
+    // margin-top:20px;
     border-radius: 16px;
-    margin-bottom: 10px;
+    // margin-bottom: 10px;
 
 }
 
@@ -134,4 +146,19 @@ ion-card > div > img{
     margin-top:10px
  
 }
+
+::-webkit-scrollbar {
+    width: 10px;
+    }
+    
+    ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+    background:#dbdae0; 
+    border-radius: 10px;
+    }
+
 

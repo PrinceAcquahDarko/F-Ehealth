@@ -1,5 +1,5 @@
 <!-- <ion-menu side="start" menuId="custom" type="overlay" contentId="main" class="my-custom-menu">
-  <ion-header>
+  <!-- <ion-header>
     <ion-toolbar>
       <ion-title>Custom Menu</ion-title>
     </ion-toolbar>
@@ -40,7 +40,7 @@
 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Optio fuga ratione explicabo delectus eum quae, ab facere harum cumque, ex laudantium, ducimus distinctio ipsum. Mollitia consequatur fugiat ex commodi consectetur.</p>
 <router-outlet id="main">
   <button (click)="openFirst()">oopn</button>
-</router-outlet> -->
+</router-outlet>  -->
 
 
 <div class="desktop">
@@ -48,30 +48,41 @@
     <section class="routes">
         <div class="picContainer">
             <div>
-                <img src="assets/imgs/profilepic.png" alt="userProfilePic">
-                <p>Prince Darko</p>
+                <img [src]="loggedInUser.pic ? loggedInUser.pic : 'assets/imgs/profilepic.png'" alt="userProfilePic">
+                <p>{{loggedInUser.firstname}} {{loggedInUser.lastname}}</p>
               </div>
         </div>
+    
         <div class="Ritems">
           <ion-list>
           <ion-item routerLink="/dashboard/profiles">
             <ion-icon name="home" slot="start"></ion-icon>
             <ion-label>Home</ion-label>
           </ion-item>
+         
           <ion-item (click)="chatRoute()">
-            <ion-icon name="mail" slot="start"></ion-icon>
-            <ion-label>Messages {{msgs}}</ion-label>
+            
+            <span slot="start">
+              <ion-icon name="mail"></ion-icon>
+              <ion-badge color="accent"  *ngIf="msgs">{{msgs}}</ion-badge>
+            </span>
+         
+
+            <ion-label>Messages</ion-label>
           </ion-item>
           <ion-item (click)="notificationRoute()">
-            <ion-icon name="archive" slot="start"></ion-icon>
-            <ion-label>Notifications {{notifications}}</ion-label>
+            <span slot="start">
+              <ion-icon name="notifications"></ion-icon>
+              <ion-badge color="accent"  *ngIf="notifications">{{notifications}}</ion-badge>
+            </span>
+            <ion-label>Notifications </ion-label>
           </ion-item>
           <ion-item routerLink="/dashboard/settings">
-            <ion-icon name="settings" slot="start"></ion-icon>
-            <ion-label>Settings</ion-label>
+            <ion-icon name="person" slot="start"></ion-icon>
+            <ion-label>Profile</ion-label>
           </ion-item>
-            <ion-item>
-            <ion-icon name="archive" slot="start"></ion-icon>
+            <ion-item (click)="logout()">
+              <ion-icon name="log-out" slot="start"></ion-icon>
             <ion-label>Logout</ion-label>
           </ion-item>
   
@@ -83,15 +94,15 @@
       <ion-menu side="start" menuId="custom" type="overlay" contentId="main" class="my-custom-menu">
         <ion-header>
           <ion-toolbar>
-            <ion-title>Custom Menu</ion-title>
+            <ion-title>Dashboard</ion-title>
           </ion-toolbar>
         </ion-header>
 
           <ion-content>
             <div class="picContainer">
               <div>
-                  <img src="assets/imgs/profilepic.png" alt="userProfilePic">
-                  <p>Prince Darko</p>
+                  <img [src]="loggedInUser.pic ? loggedInUser.pic : 'assets/imgs/profilepic.png'" alt="userProfilePic">
+                  <p>{{loggedInUser.firstname}} {{loggedInUser.lastname}}</p>
                 </div>
           </div>
             <ion-list>
@@ -100,19 +111,25 @@
                 <ion-label>Home</ion-label>
               </ion-item>
               <ion-item  routerLink="/dashboard/chat">
-                <ion-icon name="mail" slot="start"></ion-icon>
+                <span slot="start">
+                  <ion-icon name="mail"></ion-icon>
+                  <ion-badge color="accent" *ngIf="msgs">{{msgs}}</ion-badge>
+                </span>
                 <ion-label>Chat </ion-label>
               </ion-item>
               <ion-item  routerLink="/dashboard/notification">
-                <ion-icon name="heart" slot="start"></ion-icon>
+                <span slot="start">
+                  <ion-icon name="notifications"></ion-icon>
+                  <ion-badge color="accent"  *ngIf="notifications">{{notifications}}</ion-badge>
+                </span>
                 <ion-label>Notifications</ion-label>
               </ion-item>
               <ion-item routerLink="/dashboard/settings">
-                <ion-icon name="archive" slot="start"></ion-icon>
+                <ion-icon name="person" slot="start"></ion-icon>
                 <ion-label>Profile</ion-label>
               </ion-item>
-              <ion-item >
-                <ion-icon name="archive" slot="start"></ion-icon>
+              <ion-item (click)="logout()">
+                <ion-icon name="log-out" slot="start"></ion-icon>
                 <ion-label>Logout</ion-label>
               </ion-item>
        
@@ -122,7 +139,7 @@
       </ion-menu>
     </section>
     <section class="mainContainer">
-      <app-header></app-header>
+      <app-header (newMenu)="openMenu()"></app-header>
         <router-outlet id="main"></router-outlet>
     </section>
 </div>

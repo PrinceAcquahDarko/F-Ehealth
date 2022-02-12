@@ -46,6 +46,7 @@
   
   <div class="sub">
     <ion-button type='submit'  [disabled] ="registerForm.invalid">
+      <ion-spinner name="lines-small"  *ngIf='show'></ion-spinner>
       submit
     </ion-button>
   </div>
@@ -109,7 +110,10 @@
   
       </ion-grid>
       <div class="bttn">
-          <ion-button type='submit'  [disabled] ="registerForm.invalid">Submit</ion-button>
+          <ion-button type='submit'  [disabled] ="registerForm.invalid">
+        <ion-spinner name="lines-small" *ngIf='show'></ion-spinner>
+
+            Submit</ion-button>
       </div>
     </form>
     

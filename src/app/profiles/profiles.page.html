@@ -3,17 +3,21 @@
 <section class="top">
   <div>
     <ul>
-      <li><a href="">Doctor</a></li>
-      <li><a href="">Nurse</a></li>
-      <li><a href="">Midwife</a></li>
+      <li><a (click)="fire('Doctor')">Doctor</a></li>
+      <li><a (click)="fire('Nurse')">Nurse</a></li>
+      <li><a (click)="fire('Midwife')">Midwife</a></li>
     </ul>
   </div>
 </section>
 
+<div *ngIf="errmsg" class="errmsg">
+<h2 >{{errmsg}}</h2>
+</div>
+
 <section class="main">
   <ion-content>
     <ion-grid>
-      <ion-row *ngFor="let user of allHealthUsers$ | async">
+      <ion-row *ngFor="let user of allUsers">
         <ion-col >
           <ion-card>
             <div class="card-top">
@@ -41,7 +45,7 @@
 
   <ion-grid class="shownot">
     <ion-row>
-      <ion-col  *ngFor="let user of allHealthUsers$ | async" size="3" size-md>
+      <ion-col  *ngFor="let user of allUsers" size="3" size-md>
         <ion-card>
           <div class="card-top">
             <img [src]="user.pic" alt="mid2' pic">

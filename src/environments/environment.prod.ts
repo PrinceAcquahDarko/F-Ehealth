@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  url: "https://shrouded-reef-90177.herokuapp.com"
 };

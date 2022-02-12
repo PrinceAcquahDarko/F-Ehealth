@@ -17,7 +17,7 @@ ion-col > div > section{
 
 ion-card{
     margin-left:0;
-    width: 340px;
+    width: 100%;
     height: 60px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
@@ -115,10 +115,44 @@ h6{
 
 // }
 
+::-webkit-scrollbar {
+    width: 7px;
+    }
+    
+    ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+    background:#dbdae0; 
+    border-radius: 10px;
+    }
+
 ion-badge{
     margin-top: 8px;
     border-radius: 50%;
     width: 20px;
+}
+
+.nomsgs{
+    text-align: center;
+}
+
+.Cblue{
+    --background: blue
+}
+
+.chatContainer{
+    background: #f2f7fd;
+    width: 100%;
+    height: 450px;
+    overflow-y: auto;
+    overscroll-behavior-y: auto;
+}
+
+.Cred{
+    --background: red;
 }
 
 // .smallmargin{
@@ -165,16 +199,10 @@ ion-input{
         --background: #f2f7fd
     }
 
-    .Cblue{
-        background-color: blue;
-    }
-
-   .Cred{
-        background-color: red;
-   }
+ 
 
     ion-list{
-        height: 800px;
+        // min-height: 800px;
         overscroll-behavior-y: auto;
         overflow-y: auto;
     }

@@ -1,130 +1,47 @@
 
 
 <ion-content class="mobile">
-    <ion-header>
+    <ion-header *ngIf="user">
       <ion-toolbar>
         <ion-item lines="none" >
           <ion-avatar slot="start">
-            <img src="assets/imgs/doc2.jpg" />
+            <img [src]="user.pic" />
           </ion-avatar>
           <ion-label class="ion-no-border">
-            <h2>Poe</h2>
-            <p>Online</p>
+            <h2>{{user.firstname}}</h2>
+            <p>{{user.online ? 'online' : 'offline'}}</p>
           </ion-label>
     
         </ion-item>
       </ion-toolbar>
     </ion-header>
-    <div class="mainmsg">
-      <div class="fromMe">
+    <div class="mainmsg" #scrollMe>
+      <div *ngFor="let msg of chat"  [ngClass]="{'fromMe' : msg.textSort === currentUser, 'fromHim': msg.textSort !==currentUser}">
         <div>
-          <span>Lorem ipsum dolomodi iste consectetur saepe, ipsum nostrum?</span>
+          <span>{{msg.content}}</span>
           <div>
-            <small>7.00</small>
+            <small>{{msg.day}}</small>
           </div>
         </div>
        
       </div>
-      <div class="fromHim">
-        <div>
-          <span>Lorem ipsum dolomodi iste consectetur saepe, ipsum nostrum?</span>
-          <div>
-
-            <small>6.45</small>
-          </div>
-        </div>
-     
-      </div>
-      <div class="fromMe">
-        <div>
-          <span>Lom?</span>
-          <div>
-            <small>7.00</small>
-          </div>
-        </div>
-       
-      </div>
-      <div class="fromHim">
-        <div>
-          <span>Lorem ipsum dolomodi iste consectetur saepe, ipsum nostrum?</span>
-          <div>
-
-            <small>6.45</small>
-          </div>
-        </div>
-     
-      </div>
-      <div class="fromMe">
-        <div>
-          <span>Lorem ipsum dolomodi iste consectetur saepe, ipsum nostrum?</span>
-          <div>
-            <small>7.00</small>
-          </div>
-        </div>
-       
-      </div>
-      <div class="fromHim">
-        <div>
-          <span>Lorem ipsum dolomodi iste consectetur saepe, ipsum nostrum?</span>
-          <div>
-
-            <small>6.45</small>
-          </div>
-        </div>
-     
-      </div>
-      <div class="fromMe">
-        <div>
-          <span>Lorem ipsum dolomodi iste consectetur saepe, ipsum nostrum?</span>
-          <div>
-            <small>7.00</small>
-          </div>
-        </div>
-       
-      </div>
-      <div class="fromHim">
-        <div>
-          <span>Lorem ipsum dolomodi iste consectetur saepe, ipsum nostrum?</span>
-          <div>
-
-            <small>6.45</small>
-          </div>
-        </div>
-     
-      </div>
-      <div class="fromMe">
-        <div>
-          <span>Lorem ipsum dolomodi iste consectetur saepe, ipsum nostrum?</span>
-          <div>
-            <small>7.00</small>
-          </div>
-        </div>
-       
-      </div>
-      <div class="fromHim">
-        <div>
-          <span>Lorem ipsum dolomodi iste consectetur saepe, ipsum nostrum?</span>
-          <div>
-
-            <small>6.45</small>
-          </div>
-        </div>
-     
-      </div>
-
+    
     </div>
  
+   
 </ion-content>
 
 <ion-footer class="mobile">
-  <ion-input placeholder="Enter message here">
+  <ion-input placeholder="Enter message here" #msgField = 'ngModel'  [(ngModel)]="inputmsg.content"  required name="msg" ngDefaultControl>
     <ion-icon slot="end" name=""></ion-icon>
   </ion-input>
   <div>
-    <ion-icon color="primary" name="send"></ion-icon>
+    <ion-icon color="primary" name="send" (click)="sendMessage()"></ion-icon>
   </div>
 
 </ion-footer>
+
+
 
 
 <div class="desktop">

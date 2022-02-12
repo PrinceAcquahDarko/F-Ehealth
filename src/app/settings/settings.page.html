@@ -10,19 +10,17 @@
       </section>
     
       <section class="lower">
-        <form>
+        <form #form="ngForm" (ngSubmit)="submit()">
           <ion-grid >
             <ion-row>
               <ion-col size="12" size-sm >
                   <ion-label>First Name</ion-label><br>
-                 <ion-input></ion-input>
-                 <!-- <small *ngIf="registerForm.get('firstname')?.errors?.required && registerForm.get('firstname')?.touched">firstname is required</small> -->
+                 <ion-input #firstname = 'ngModel' [(ngModel)]="credentials.firstname" required name="firstname"></ion-input>
     
               </ion-col>
               <ion-col size="12" size-sm >
                 <ion-label>Last Name</ion-label><br>
-                <ion-input ></ion-input>
-                <!-- <small *ngIf="registerForm.get('lastname')?.errors?.required && registerForm.get('lastname')?.touched">lastname is required</small> -->
+                <ion-input #lastname = 'ngModel' [(ngModel)]="credentials.lastname" required name="lastname"></ion-input>
     
               </ion-col>
             </ion-row>
@@ -30,14 +28,11 @@
             
               <ion-col size="12" size-sm >
                 <ion-label>Password</ion-label><br>
-                <ion-input  type="password"></ion-input>
-                <!-- <small *ngIf="registerForm.get('passwordGroup.password')?.errors?.required && registerForm.get('passwordGroup.password')?.touched">password is required</small> -->
-            <!-- <small *ngIf="registerForm.get('passwordGroup.password')?.errors?.minlength && registerForm.get('passwordGroup.password')?.touched">password must be six characters or more</small> -->
+                <ion-input  type="password" #password = 'ngModel' [(ngModel)]="credentials.password"  name="password"></ion-input>
               </ion-col>
               <ion-col size="12" size-sm>
                 <ion-label>Email</ion-label>
-               <ion-input ></ion-input>
-              <!-- <small *ngIf="registerForm.get('email')?.errors?.required && registerForm.get('email')?.touched">email is required</small> -->
+               <ion-input  type="email" #email = 'ngModel' [(ngModel)]="credentials.email" required name="email"></ion-input>
     
             </ion-col>
          
@@ -46,8 +41,8 @@
           
     
               <ion-col size="12" size-sm >
-                <label for="fileI" class="custom-label">Upload an img</label>
-               <input id="fileI" type="file">
+                <label for="fileI" class="custom-label">{{label}}</label>
+               <input id="fileI" type="file"  name="pic" (change) ="selectImage($event)">
               <!-- <small *ngIf="registerForm.get('email')?.errors?.required && registerForm.get('email')?.touched">email is required</small> -->
     
             </ion-col>
@@ -62,7 +57,7 @@
       
           </ion-grid>
           <div class="bttn">
-              <ion-button type='submit'>Update</ion-button>
+              <ion-button type='submit' [disabled] = "form.invalid">Update</ion-button>
           </div>
         </form>
         

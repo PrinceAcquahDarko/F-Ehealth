@@ -2,13 +2,13 @@
 <ion-content>
   <ion-card>
     <ion-card-content>
-      <ion-list>
+      <ion-list *ngFor="let item of notifications$ | async">
         <ion-item lines="none">
           <ion-icon slot="start" name="mail"></ion-icon>
           <ion-label>
-            <h2>Poe</h2>
-            <p>I just upgraded myng. Next time...</p>
+            <p>{{item.msg}}</p>
           </ion-label>
+          <ion-label slot="end">{{item.day}}</ion-label>
         </ion-item>
       </ion-list>
     </ion-card-content>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
 import { ChatServiceService } from '../../chat-service.service';
 
 @Component({
@@ -13,6 +13,7 @@ export class ChatInComponent implements OnInit {
     content: ''
   }
   currentUser = this.cs.userId
+  @ViewChild('scrollMe') private myScrollContainer: ElementRef;
   
 
   constructor(private cs:ChatServiceService) { }
@@ -21,16 +22,24 @@ export class ChatInComponent implements OnInit {
 
   ngOnInit() {
     this.cs.socket.on("private message", (data) => {
-      console.log(data)
-      if(data.from === this.user.uniqueNum){
-        let obj = {
-          content: data.content,
-          from : data.from
+
+      try {
+        console.log(this.user.uniqueNum, 'from uniqye num')
+        if(data.from === this.user.uniqueNum){
+          let day = new Date().toString()
+          let obj = {
+            content: data.content,
+            from : data.from,
+            day: day.substring(16, 21)
+          }
+          this.chat.push(obj)
+        }else{
+          // alert('you have a new msg')
         }
-        this.chat.push(obj)
-      }else{
-        // alert('you have a new msg')
+      } catch (error) {
+        console.log(error)
       }
+      
     
        
      });
@@ -38,6 +47,8 @@ export class ChatInComponent implements OnInit {
 
   sendMessage(){
     //console.log()
+    let day = new Date().toString()
+    
     // alert(this.inputmsg.content)
     let obj = {
       content:this.inputmsg.content,
@@ -45,14 +56,31 @@ export class ChatInComponent implements OnInit {
       from: this.currentUser,
       textSort:this.currentUser,
       health: false,
-      connection: this.user.online
+      connection: this.user.online,
+      day
+
     }
+
+    console.log(obj.day)
     if(this.cs.lstorage.status === 'health'){
       obj.health = true
     }
     this.cs.socket.emit("private message", obj)
+    obj.day = obj.day.substring(16, 21)
     this.chat.push(obj)
     this.inputmsg.content = ''
+  }
+
+  ngAfterViewChecked(){
+    this.scrollToBottom()
+  }
+
+  scrollToBottom():void{
+    try {
+        this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight
+    } catch (error) {
+        console.log(error)
+    }
   }
 
 }

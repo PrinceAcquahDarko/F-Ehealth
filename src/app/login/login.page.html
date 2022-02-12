@@ -12,7 +12,7 @@
   </ion-input>
 </div>
 <div>
-  <ion-input placeholder="Password" #password = 'ngModel' [(ngModel)]="userCredentials.password" required name="password">
+  <ion-input placeholder="Password" type="password" #password = 'ngModel' [(ngModel)]="userCredentials.password" required name="password">
   <ion-icon slot="icon-only"  name="eye-off-outline"></ion-icon>
 
   </ion-input>
@@ -20,6 +20,7 @@
 
 <div class="sub">
   <ion-button type='submit' [disabled] = "form.invalid">
+    <ion-spinner name="lines-small"  *ngIf='show'></ion-spinner>
     submit
   </ion-button>
 </div>
@@ -47,7 +48,9 @@
       </ion-grid>
 
       <div class="bttn">
-        <ion-button type='submit'  [disabled] ="form.invalid">Log In</ion-button>
+        <ion-button type='submit'  [disabled] ="form.invalid">
+          <ion-spinner name="lines-small"  *ngIf='show'></ion-spinner>
+          Log In</ion-button>
     </div>
 </form>
 

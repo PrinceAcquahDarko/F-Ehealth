@@ -3,12 +3,16 @@ import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import { Ilogin, Iregister } from './interface';
 import { catchError } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
+import {environment} from "../../environments/environment"
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class GeneralService {
-  url = 'http://localhost:3000'
+  lstorage = JSON.parse(localStorage.getItem("Info")!)
+  userId = this.lstorage.num
+  url = environment.url
   constructor(private http: HttpClient) { }
 
   registerUser(data:Iregister): Observable<any>{
@@ -20,6 +24,20 @@ export class GeneralService {
 
   getAllHealthUsers(): Observable<any>{
     return this.http.get<Iregister>(this.url + '/api-register')
+    .pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  getSingleUser():Observable<any>{
+    return this.http.get<Iregister>(this.url + '/api-register/id' + '?id=' +this.userId)
+    .pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  updateUser(data):Observable<any>{
+    return this.http.put<Iregister>(this.url + '/api-register' + '?id=' +this.userId, data)
     .pipe(
       catchError(this.handleError)
     )

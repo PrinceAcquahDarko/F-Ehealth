@@ -25,6 +25,7 @@ function passwordMatcher(c: AbstractControl): { [key:string]: boolean } | null {
 })
 export class WelcomePage implements OnInit {
   errormsg!:string
+  show = false
   registerForm: FormGroup = this.fb.group({
 
     firstname: ['', [Validators.required]],
@@ -46,6 +47,7 @@ export class WelcomePage implements OnInit {
   }
 
   registerUser(): void{
+    this.show = true
     if(this.registerForm?.valid){
       // this.show = true;
       let data = this.formatValue()
@@ -58,6 +60,7 @@ export class WelcomePage implements OnInit {
         },
         err => {
           console.log(err)
+          this.show = false
           this.errormsg = err;
           // this.show = false
 

@@ -74,6 +74,17 @@ app-header{
 
 
 }
+h2{
+    color:#1f1f1f;
+}
+
+.errmsg{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
 .card-top{
     margin-top: 1em;
     text-align: center;
@@ -102,6 +113,8 @@ ion-button{
         
 
     }
+
+ 
 
     ion-content{
         --background: #ffffff;

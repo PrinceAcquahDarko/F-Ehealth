@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MenuController } from '@ionic/angular';
+import { MenuController,ToastController } from '@ionic/angular';
 import { map, tap } from 'rxjs/operators';
 import { ChatServiceService } from '../chat-service.service';
-
 
 @Component({
   selector: 'app-dashboard',
@@ -14,24 +13,28 @@ export class DashboardPage implements OnInit {
   socket:any
   msgs = 0
   notifications = 0
+  loggedInUser = this.cs.lstorage
 
-  constructor(private menu: MenuController, private cs: ChatServiceService, private router: Router) { }
+  constructor(private menu: MenuController, private cs: ChatServiceService, 
+  private router: Router, public toastController: ToastController) { }
 
    ngOnInit() {
+     console.log(new Date())
+    this.socket =  this.cs.initiliazeSocket()
+
      this.getAllSubs().subscribe(x => {
        this.cs.allSubs = x
        console.log(x, 'from xxxeefd')
        this.allSockets()
       })
       
-      this.menu.enable(true, 'custom');
-      this.menu.open('custom');
+      // this.menu.enable(true, 'custom');
+      // this.menu.open('custom');
   
   }
 
   
-  openFirst() {
-    console.log('yest')
+  openMenu() {
     this.menu.enable(true, 'custom');
     this.menu.open('custom');
   }
@@ -47,14 +50,14 @@ export class DashboardPage implements OnInit {
             user.messages = 0
           }
           if(this.cs.lstorage.status ==='user'){
-            console.log(this.cs.users.filter(x => x.id === user.toUser.uniqueNum).length, 'from ops')
+            console.log(this.cs.users.filter(x => x.id === user.toUser.uniqueNum).length, 'from fops')
             user.online =  this.cs.users.filter(x => x.id === user.toUser.uniqueNum).length ? true : false
             user.pic = user.toUser.pic
             user.firstname = user.toUser.firstname
             user.lastname = user.toUser.lastname
             user.uniqueNum = user.toUser.uniqueNum
           }else{
-            console.log(this.cs.users.filter(x => x.id === user.fromUser.uniqueNum).length, 'from ops')
+            console.log(this.cs.users.filter(x => x.id === user.fromUser.uniqueNum).length, 'from sops')
             user.online =  this.cs.users.filter(x => x.id === user.fromUser.uniqueNum).length ? true : false
             user.pic = user.fromUser.pic
             user.firstname = user.fromUser.firstname
@@ -71,11 +74,8 @@ export class DashboardPage implements OnInit {
   }
 
   allSockets(){
-    this.socket =  this.cs.initiliazeSocket()
     this.socket.on("request message", (data) => {
-      alert(data.content)
-    
-
+        this.presentToastWithOptions('Notifications', data.content)
       if(this.cs.lstorage.status === 'health'){
         this.notifications += 1
       }
@@ -85,7 +85,9 @@ export class DashboardPage implements OnInit {
         content: `okay`,
         from: this.cs.userId,
         to: data.from,
-        connection: this.cs.users.filter(x => x.id === data.from).length ? true : false
+        connection: this.cs.users.filter(x => x.id === data.from).length ? true : false,
+        day: new Date().toString()
+
       });
     });
 
@@ -96,8 +98,8 @@ export class DashboardPage implements OnInit {
     if(this.cs.lstorage.status === 'user'){
       this.notifications += 1
     }
-     let msg = `Doc ${data.from} has accepted your chat request`
-     alert(msg)
+     this.presentToastWithOptions('ChatRequest', 'your Chat request has been accepted')
+
      this.router.navigate(['dashboard/chat'])
       
        
@@ -107,11 +109,9 @@ export class DashboardPage implements OnInit {
       // if(data.from === this.user.user.uniqueNum){
       let user =  this.cs.allSubs.find(x => x.uniqueNum === data.from)
       user.messages += 1
+      this.cs.allSubs.sort((x,y) => x == user ? -1 : y == user ? 1: 0)
       this.getAllMsgsLength()
-        alert(user)
-        // this.chat.push(obj)
-      // }else{
-        // alert('you have a new msg')
+      this.presentToastWithOptions('Message', 'you have a new message')
       })
     
       this.socket.on("savedChats", (data) => {
@@ -121,19 +121,29 @@ export class DashboardPage implements OnInit {
         user.messages += 1
       })
 
-      this.socket.on("savedNoti", (data)=>{
-        alert('you have new notifications');
+      this.socket.on("savedNoti",async (data)=>{
+        // alert('you have new notifications');
+        this.presentToastWithOptions('Notifications', 'you have new notifications')
         console.log(this.cs.users.filter(x => x.id === data.from).length ? true : false, 'from online')
         this.notifications += 1
         if(this.cs.lstorage.status === 'health'){
+          let day = new Date().toString()
+
           this.socket.emit("confirm message", {
             content: `okay`,
             from: this.cs.userId,
             to: data.from,
-            connection: this.cs.users.filter(x => x.id === data.from).length ? true : false
+            connection: this.cs.users.filter(x => x.id === data.from).length ? true : false,
+           day
+
           });
         }
       
+      })
+
+      this.socket.on("user disconnected", (data) => {
+        let user =  this.cs.allSubs.find(x => x.uniqueNum === data)
+        user.online = false
       })
   }
 
@@ -153,6 +163,23 @@ export class DashboardPage implements OnInit {
     this.notifications = 0
     this.router.navigate(['dashboard/notification'])
 
+  }
+
+   async presentToastWithOptions(header, msg) {
+    const toast = await this.toastController.create({
+      header,
+      message:msg,
+      icon: 'information-circle',
+      position: 'top',
+      duration: 4000
+ 
+    });
+    await toast.present();
+  }
+
+
+  logout(){
+    this.router.navigate(['home'])
   }
 
 }

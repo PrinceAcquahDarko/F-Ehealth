@@ -8,6 +8,7 @@ import { GeneralService } from '../home/general.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+  show = false
   errormsg= 'Please sign in below with the credentials used in signing up'
   userCredentials= {
     email: '',
@@ -19,6 +20,7 @@ export class LoginPage implements OnInit {
   }
 
   loginUser(): void{
+    this.show = true
       this.genService.loginUser(this.userCredentials).subscribe(
         res => {
           localStorage.setItem('Info', JSON.stringify(res.response));
@@ -28,6 +30,7 @@ export class LoginPage implements OnInit {
 
         },
         err => {
+          this.show = false
           this.errormsg = err;
           // this.show = false;
         },

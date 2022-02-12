@@ -43,6 +43,24 @@
   .mobRoutes{
     display: none;
   }
+ 
+
+
+span{
+  position:relative;
+} 
+
+ion-badge{
+  position:absolute;
+  top: -8px;
+    left: 15px;
+}
+
+span > ion-icon{
+  color: rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.54);
+    font-size: 24px;
+}
+  
 
   
   app-header{

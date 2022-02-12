@@ -2,14 +2,14 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import { catchError } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
-
+import {environment} from "../environments/environment"
 import * as io from 'socket.io-client'
 
 @Injectable({
   providedIn: 'root'
 })
 export class ChatServiceService {
-  url = 'http://localhost:3000'
+  url = environment.url
   socket:any;
   allSubs = []
   lstorage = JSON.parse(localStorage.getItem("Info")!)
@@ -52,6 +52,13 @@ export class ChatServiceService {
 // + '?updatedId=' + std._id + '&' + 'class=' + stdsClass
 getChats(me, to): Observable<any>{
   return this.http.get<any>(this.url + '/api-chat/msgs'+ '?me=' + me + '&' + 'to=' + to+ '&' + 'status=' + this.lstorage.status)
+  .pipe(
+    catchError(this.handleError)
+  )
+}
+
+getNotifications(): Observable<any>{
+  return this.http.get<any>(this.url + '/api-chat/notifications'+ '?to=' +  this.userId)
   .pipe(
     catchError(this.handleError)
   )

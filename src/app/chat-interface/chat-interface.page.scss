@@ -1,13 +1,17 @@
 ion-content{
-    --background:#fff
+    --background:#fff;
+    height: 89vh;
 }
 
 .fromMe{
     background-color: #eef2fd;
-    margin-right: 5px;
-    width: 80%;
+    margin-right: 15px;
+    margin-left: 6em;
+    width: 40%;
     float: right;
     border-radius: 18px;
+    margin-top: 10px;
+
 }
 
 .fromMe > div{
@@ -17,13 +21,17 @@ ion-content{
 
 
 
+
+
 ion-icon{
     padding-left:30px
 }
 
-ion-footer  > ion-input{
-    width:80%
-}
+// ion-footer  > ion-input{
+//     width:80%;
+//     height:50px;
+
+// }
 
 ion-footer > div{
     width:20%;
@@ -38,6 +46,14 @@ ion-footer {
     
 }
 
+.mainmsg{
+    width:100%;
+    height: 650px;
+    overscroll-behavior-y: auto;
+    overflow-y: auto;
+
+}
+
 
 
 ion-item{
@@ -45,6 +61,8 @@ ion-item{
     margin:0;
     --background: #f2f7fd
 }
+
+
 
 h2,p{
     color: var(--ion-color-step-600, #666666);
@@ -54,25 +72,24 @@ h2,p{
     background: #f2f7fd
 }
 ion-input{
-    width: 100%;
     background: #eef2fd;
    color:  #7a797d;
-   --padding: 30px;
+//    margin-top: 30px;
+//    padding: 30px;
 
 }
 
-ion-footer{
-    --background: #fff
-}
 
 .fromHim{
-    margin-left: 5px;
+    margin-left: 15px;
+    margin-right: 6em;
     background-color: blue;
-    width: 80%;
+    width: 40%;
     float: left;
     border-radius: 18px;
-    margin-top:20px;
-    margin-bottom: 20px;
+    margin-top:10px;
+    
+
 }
 
 .fromHim > div{
@@ -92,5 +109,11 @@ ion-content > ion-header {
     }
     .desktop{
         display: block;
+    }
+}
+
+@media only screen and (max-height: 740px) { 
+    ion-content{
+        height: 87vh
     }
 }
