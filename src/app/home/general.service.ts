@@ -31,7 +31,9 @@ export class GeneralService {
   }
 
   getSingleUser():Observable<any>{
-   const  userId = this.lstorage.num
+ const lstorage = JSON.parse(localStorage.getItem("Info")!)
+
+   const  userId = lstorage.num
     return this.http.get<Iregister>(this.url + '/api-register/id' + '?id=' +userId)
     .pipe(
       catchError(this.handleError)
@@ -39,7 +41,9 @@ export class GeneralService {
   }
 
   updateUser(data):Observable<any>{
-   const  userId = this.lstorage.num
+ const lstorage = JSON.parse(localStorage.getItem("Info")!)
+
+   const  userId = lstorage.num
     return this.http.put<Iregister>(this.url + '/api-register' + '?id=' +userId, data)
     .pipe(
       catchError(this.handleError)
