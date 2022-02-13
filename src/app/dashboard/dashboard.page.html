@@ -70,14 +70,14 @@
               </ion-item>
               <ion-item  routerLink="/dashboard/chat">
                 <span slot="start">
-                  <ion-icon name="mail"></ion-icon>
+                  <ion-icon class="noti" name="mail"></ion-icon>
                   <ion-badge color="accent" *ngIf="msgs">{{msgs}}</ion-badge>
                 </span>
                 <ion-label>Chat </ion-label>
               </ion-item>
               <ion-item  routerLink="/dashboard/notification">
-                <span slot="start">
-                  <ion-icon name="notifications"></ion-icon>
+                <span  slot="start">
+                  <ion-icon  class="noti" name="notifications"></ion-icon>
                   <ion-badge color="accent"  *ngIf="notifications">{{notifications}}</ion-badge>
                 </span>
                 <ion-label>Notifications</ion-label>

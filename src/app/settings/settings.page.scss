@@ -18,8 +18,7 @@ ion-card{
     width: 80%;
     height: 600px;
     margin:3em auto auto auto;
-    overscroll-behavior-y: auto;
-    overflow-y: auto;
+ 
 }
 
 ion-header{
@@ -118,6 +117,8 @@ ion-card-content{
     }
     ion-card{
         height: 700px;
+        overscroll-behavior-y: auto;
+        overflow-y: auto;
     }
 
     ion-card-content{

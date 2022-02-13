@@ -90,10 +90,13 @@ span > ion-icon{
     }
 
     ion-icon{
-      color: rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.54) !important;
-
+      color: #baaef8;
     }
 
+   span > ion-icon{
+    color: #baaef8 !important;
+
+   }
      
 
       .mainContainer{
@@ -103,6 +106,10 @@ span > ion-icon{
         background: #ffffff;
 
        
+      }
+
+      .picContainer > div > p{
+        color: #fff;
       }
 
       .dash{
