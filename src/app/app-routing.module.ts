@@ -17,15 +17,6 @@ const routes: Routes = [
     loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule)
   },
 
-  // {
-  //   path: 'notifications',
-  //   loadChildren: () => import('./notifications/notifications.module').then( m => m.NotificationsPageModule)
-  // },
-
-  // {
-  //   path: 'chat-interface',
-  //   loadChildren: () => import('./chat-interface/chat-interface.module').then( m => m.ChatInterfacePageModule)
-  // }
 
 ];
 
