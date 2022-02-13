@@ -5,12 +5,20 @@ ion-content{
 
 ion-card{
     width: 90%;
+    height: 95%;
+    margin:auto;
+    
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+ion-card-content{
     height: 80%;
-    margin:2em auto auto auto;
     overscroll-behavior-y: auto;
     overflow-y: auto;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-
 }
 
 .upper {

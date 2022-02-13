@@ -116,14 +116,19 @@ ion-card-content{
         display: block;
     }
     ion-card{
-        height: 85%;
-        overscroll-behavior-y: auto;
-        overflow-y: auto;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
+   
     ion-card-content{
-        margin-top: 5em;
-    }
+      margin-top:0;
+      height: 80%;
+      overscroll-behavior-y: auto;
+      overflow-y: auto;
+  }
 
     ion-col > ion-input{
         width: 100%;
