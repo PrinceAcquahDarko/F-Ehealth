@@ -12,7 +12,7 @@ import { HttpInterceptorModule } from './http.interceptor';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-    imports: [BrowserModule,HttpInterceptorModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule ],
+    imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpInterceptorModule,HttpClientModule ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
