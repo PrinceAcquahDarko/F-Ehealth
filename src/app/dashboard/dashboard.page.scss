@@ -76,7 +76,7 @@ span > ion-icon{
       }
 
       span > ion-icon{
-        color: rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.54);
+        color: rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.54) !important;
           font-size: 24px;
       }
 
@@ -85,7 +85,7 @@ span > ion-icon{
       }
 
       .item.sc-ion-label-ios-h, .item .sc-ion-label-ios-h {
-        --color: #fff;
+        --color: #fff !important;
         color: var(--color);
     
     }
@@ -101,9 +101,13 @@ span > ion-icon{
        
       }
 
+      ion-tittle{
+        --color:#fff !important;
+      }
+
       .mobRoutes{
         display: block;
-        background-color: #7080d5;
+        background-color: #7080d5 !important;
 
       }
 
