@@ -18,7 +18,7 @@ ion-card{
     width: 80%;
     height: 600px;
     margin:3em auto auto auto;
- 
+
 }
 
 ion-header{
@@ -96,19 +96,7 @@ ion-card-content{
     margin-bottom: 20px;
   }
 
-  ::-webkit-scrollbar {
-    width: 10px;
-    }
-    
-    ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px grey; 
-    border-radius: 10px;
-    }
-    
-    ::-webkit-scrollbar-thumb {
-    background:#dbdae0; 
-    border-radius: 10px;
-    }
+  
 
   @media only screen and (max-width: 915px) { 
 
@@ -116,19 +104,12 @@ ion-card-content{
         display: block;
     }
     ion-card{
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        height: 700px;
     }
 
-   
     ion-card-content{
-      margin-top:0;
-      height: 80%;
-      overscroll-behavior-y: auto;
-      overflow-y: auto;
-  }
+        margin-top: 5em;
+    }
 
     ion-col > ion-input{
         width: 100%;
