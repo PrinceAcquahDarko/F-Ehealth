@@ -10,7 +10,6 @@ import {environment} from "../../environments/environment.prod"
   providedIn: 'root'
 })
 export class GeneralService {
-  lstorage = JSON.parse(localStorage.getItem("Info")!)
   
   url = environment.url
   constructor(private http: HttpClient) { }
