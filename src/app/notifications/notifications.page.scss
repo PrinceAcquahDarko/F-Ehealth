@@ -24,8 +24,12 @@ ion-card{
   background: #fff;
 }
 
-h2,p, ion-icon{
+p, ion-icon{
     color: var(--ion-color-step-600, #666666);
+}
+
+h2{
+    text-align: center;
 }
 
 ::-webkit-scrollbar {

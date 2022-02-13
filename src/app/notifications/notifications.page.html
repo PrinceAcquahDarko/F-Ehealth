@@ -1,8 +1,8 @@
 
 <ion-content>
-  <ion-card>
+  <ion-card *ngIf="notifications$ | async as noti">
     <ion-card-content>
-      <ion-list *ngFor="let item of notifications$ | async">
+      <ion-list *ngFor="let item of noti">
         <ion-item lines="none">
           <ion-icon slot="start" name="mail"></ion-icon>
           <ion-label>
@@ -13,5 +13,9 @@
       </ion-list>
     </ion-card-content>
   </ion-card>
+
+  <h2 *ngIf="!notifications$ | async">
+      You currently have no notifications
+  </h2>
   
 </ion-content>

@@ -84,10 +84,14 @@ span > ion-icon{
         display: block;
       }
 
-      .item.sc-ion-label-ios-h, .item .sc-ion-label-ios-h {
-        --color: #fff !important;
-        color: var(--color);
+      ion-label{
+       color: #FFF !important;
     
+    }
+
+    ion-icon{
+      color: rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.54) !important;
+
     }
 
      
@@ -101,8 +105,8 @@ span > ion-icon{
        
       }
 
-      ion-tittle{
-        --color:#fff !important;
+      .dash{
+        color:#FFF;
       }
 
       .mobRoutes{
@@ -116,15 +120,15 @@ span > ion-icon{
         margin-bottom: 2em;
       }
       .list-ios {
-        background: #1e9fd9;;
+        background: #1e9fd9;
     }
     .list-md{
-      background: #1e9fd9;;
+      background: #1e9fd9;
 
     }
 
     ion-content{
-      background: #1e9fd9;;
+      --background: #1e9fd9;
 
     }
       ion-menu > ion-content > ion-list > ion-item{
