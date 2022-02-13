@@ -6,7 +6,8 @@ ion-card{
   min-height: 450px;
   --background: #ffffff;
   position: absolute;
-  top: -150px;
+  // top: -150px;
+  top:-30%;
   left: 35px;
   border-radius: 20px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -14,6 +15,11 @@ ion-card{
   
 
 }
+  
+ion-title{
+  --color:#fff
+}
+
 
 
 
@@ -48,7 +54,7 @@ ion-content{
 
 .btn-container{
   width: 90%;
-  height: 250px;
+  height: 30%;
   display: flex;
   align-items: center;
   justify-content: center;
