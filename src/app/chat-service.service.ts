@@ -20,7 +20,7 @@ export class ChatServiceService {
   
 
  initiliazeSocket(){
-  this.socket = io.io(`localhost:3000`, { autoConnect: false })
+  this.socket = io.io(this.url, { autoConnect: false })
     if(this.userId){
       let userId = this.userId
       this.socket.auth = {userId}
