@@ -54,6 +54,7 @@ export class ProfilesPage implements OnInit {
   }
 
   fire(position){
+    this.allUsers = this.intitial
     let filtered = this.allUsers.filter(x => x.profession?.toLowerCase() === position.toLowerCase())
      filtered.length ? this.allUsers = filtered : this.allUsers = this.intitial
 
