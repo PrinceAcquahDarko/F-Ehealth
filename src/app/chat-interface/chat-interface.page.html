@@ -27,18 +27,19 @@
       </div>
    
     </div>
-    <ion-footer class="mobile footer">
-      <ion-input placeholder="Enter message here" #msgField = 'ngModel'  [(ngModel)]="inputmsg.content"  required name="msg" ngDefaultControl>
-        <ion-icon slot="end" name=""></ion-icon>
-      </ion-input>
-      <div>
-        <ion-icon color="primary" name="send" (click)="sendMessage()"></ion-icon>
-      </div>
-    
-    </ion-footer>
+
  
     
 </ion-content>
+<ion-footer class="mobile footer">
+  <ion-input placeholder="Enter message here" #msgField = 'ngModel'  [(ngModel)]="inputmsg.content"  required name="msg" ngDefaultControl>
+    <ion-icon slot="end" name=""></ion-icon>
+  </ion-input>
+  <div>
+    <ion-icon color="primary" name="send" (click)="sendMessage()"></ion-icon>
+  </div>
+
+</ion-footer>
 
 
 
