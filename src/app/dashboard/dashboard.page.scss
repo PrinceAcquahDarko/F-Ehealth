@@ -67,7 +67,7 @@ span > ion-icon{
   
 
   
-  ion-header{
+  app-header{
     display: none;
   }
   @media only screen and (max-width: 915px) {
@@ -80,7 +80,7 @@ span > ion-icon{
           font-size: 24px;
       }
 
-      ion-header{
+      app-header{
         display: block;
       }
 
@@ -138,6 +138,8 @@ span > ion-icon{
       --background: #1e9fd9;
 
     }
+
+ 
       ion-menu > ion-content > ion-list > ion-item{
          --background: #1e9fd9;
          padding:8px

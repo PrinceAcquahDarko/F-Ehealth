@@ -96,10 +96,10 @@
 
       </ion-menu>
     </section>
+    <ion-content>
     <section class="mainContainer">
-      <ion-header class="ion-no-border">
-        <app-header (newMenu)="openMenu()"></app-header>
-      </ion-header>
+      <app-header (newMenu)="openMenu()"></app-header>
         <router-outlet id="main"></router-outlet>
     </section>
+  </ion-content>
 </div>
