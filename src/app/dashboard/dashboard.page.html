@@ -96,8 +96,8 @@
 
       </ion-menu>
     </section>
-    <section class="mainContainer">
+    <ion-content [fullscreen]="true" class="mainContainer">
       <app-header (newMenu)="openMenu()"></app-header>
         <router-outlet id="main"></router-outlet>
-    </section>
+    </ion-content>
 </div>
