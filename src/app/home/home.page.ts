@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 
 @Component({
@@ -11,7 +11,7 @@ export class HomePage implements OnInit {
   constructor(public alertController: AlertController) {}
 
    async ngOnInit() {
-    await this.present()
+       await this.present()
   }
 
    async present(){
