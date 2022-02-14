@@ -1,25 +1,23 @@
 ion-content{
     --background: #fff;
+    height: 100vh;
 
 }
 
 ion-card{
     width: 90%;
-    height: 95%;
+    height: 90%;
     margin:auto;
-    
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-}
-
-ion-card-content{
-    height: 80%;
     overscroll-behavior-y: auto;
     overflow-y: auto;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+    margin-top:3em;
+
 }
+
+
+
 
 .upper {
     width: 100%;
@@ -66,6 +64,7 @@ h2{
 
     ion-card{
         width: 70%;
-         height: 650px;
+         height: 90%;
+         margin-top: 20px
     }
 }
