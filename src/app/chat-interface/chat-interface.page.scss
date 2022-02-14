@@ -1,6 +1,6 @@
 ion-content{
     --background:#fff;
-    height:600px;
+    height:650px;
     overscroll-behavior-y: auto;
     overflow-y: auto;
     
@@ -57,7 +57,9 @@ ion-footer {
 
 }
 .footer{
-    height:auto
+    height:auto;
+   // height:10%;
+
 }
 
 
@@ -110,9 +112,7 @@ ion-content > ion-header {
     display: none;
 }
 
-ion-footer{
-    height:10%;
-}
+
 
 @media only screen and (min-width: 915px) {
     .mobile{
