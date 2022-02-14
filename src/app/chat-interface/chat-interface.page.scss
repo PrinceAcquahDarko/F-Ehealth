@@ -1,6 +1,6 @@
 ion-content{
     --background:#fff;
-    height: 80vh;
+    height: 100vh;
 }
 
 .fromMe{
@@ -99,6 +99,7 @@ ion-input{
     padding:10px
 }
 
+
 ion-content > ion-header {
     margin-bottom: 20px;
 }
@@ -107,7 +108,7 @@ ion-content > ion-header {
 }
 
 ion-footer{
-    height:20%;
+    height:10%;
 }
 
 @media only screen and (min-width: 915px) {
@@ -120,7 +121,7 @@ ion-footer{
 }
 
 @media only screen and (max-height: 740px) { 
-    ion-content{
-        height: 87vh
-    }
+    // ion-content{
+    //     height: 87vh
+    // }
 }

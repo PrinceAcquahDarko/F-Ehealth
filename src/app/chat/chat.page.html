@@ -16,7 +16,7 @@
                     <section class="chatContainer">
                         <ion-card *ngFor="let sub of allSubs" (click)="setUser(sub)">
                           <div >
-                            <img [src]="sub.pic" alt="">
+                            <img [src]="sub.pic ? sub.pic : 'assets/imgs/profilepic.png'" alt="">
                             <div>
                               <h6>{{sub.firstname}} {{sub.lastname}}</h6>
                               <small>{{sub.online ? 'online' : 'offline'}}</small>
