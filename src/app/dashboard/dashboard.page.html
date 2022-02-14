@@ -97,7 +97,9 @@
       </ion-menu>
     </section>
     <section class="mainContainer">
-      <app-header (newMenu)="openMenu()"></app-header>
+      <ion-header class="ion-no-border">
+        <app-header (newMenu)="openMenu()"></app-header>
+      </ion-header>
         <router-outlet id="main"></router-outlet>
     </section>
 </div>
