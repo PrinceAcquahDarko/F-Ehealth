@@ -11,16 +11,15 @@ export class HomePage implements OnInit {
   constructor(public alertController: AlertController) {}
 
    async ngOnInit() {
-   await this.present()
+    await this.present()
   }
 
-}
-
-async present(){
-		const alert = await this.alertController.create({
+   async present(){
+ 
+    const alert = await this.alertController.create({
       cssClass: 'my-alert-class',
-      header: 'Confirm',
-      message: ` You can log in with info@gmail.com as email and 123456 as password or visit <a href="https://github.com/PrinceAcquahDarko/E-health#readme" target="_blank">link</a> for more options
+      header: 'Login',
+       message: ` You can log in with info@gmail.com as email and 123456 as password or visit <a href="https://github.com/PrinceAcquahDarko/E-health#readme" target="_blank">link</a> for more options
       `,
        buttons:[
        
@@ -31,10 +30,16 @@ async present(){
           }
         },
       ]
-     
     })
 
     await alert.present()
+
+
+  }
+
+
 }
+
+
 
 

@@ -29,7 +29,7 @@
     </div>
 
  
-    <ion-footer class="mobile footer">
+    <ion-footer class="mobile footer" slot="fixed">
       <ion-input placeholder="Enter message here" #msgField = 'ngModel'  [(ngModel)]="inputmsg.content"  required name="msg" ngDefaultControl>
         <ion-icon slot="end" name=""></ion-icon>
       </ion-input>
