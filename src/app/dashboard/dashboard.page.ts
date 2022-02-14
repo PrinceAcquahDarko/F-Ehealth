@@ -162,7 +162,7 @@ export class DashboardPage implements OnInit {
 
   logout(){
     localStorage.clear();
-    this.router.navigate(['home'])
+    this.router.navigate(['/login'])
   }
 
   formatUser(user){
