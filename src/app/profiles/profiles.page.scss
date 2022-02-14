@@ -104,7 +104,7 @@ ion-button{
     .main{
         width: 90%;
         margin:auto;
-        min-height: 750px;
+        min-height: 100vh;
         background: #ffffff;
     }
 
@@ -119,6 +119,9 @@ ion-button{
     ion-content{
         --background: #ffffff;
         display: block;
+        height:70%;
+        overscroll-behavior-y: auto;
+        overflow-y: auto;
     }
 
     .shownot{
