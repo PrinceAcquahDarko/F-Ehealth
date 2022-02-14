@@ -27,10 +27,11 @@ export class ChatServiceService {
 
     this.socket.on('users', (data) => {
       this.users = data;
-      console.log(this.users, 'from usersssss');
+      console.log(this.users, 'from usersssss amen');
     });
 
     this.socket.on('user connected', (data) => {
+      console.log(data, 'a new user connected')
       this.users.push(data);
       let user = this.allSubs.find((x) => x.uniqueNum === data.id);
       if (user) {
