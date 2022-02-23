@@ -14,7 +14,9 @@ import { HomePageModule } from './home/home.module';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-    imports: [BrowserModule, IonicModule.forRoot(), HomePageModule, AppRoutingModule, HttpInterceptorModule,HttpClientModule ],
+    imports: [BrowserModule, IonicModule.forRoot({
+      mode: 'md'
+    }), HomePageModule, AppRoutingModule, HttpInterceptorModule,HttpClientModule ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, {provide: ErrorHandler, useClass: GlobalErrorHandler}],
   bootstrap: [AppComponent],
 })
